@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="737.0" prefWidth="1065.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.ijse.inspira1stsemesterproject.controller.BookingController">
+   <children>
+      <Label layoutX="32.0" layoutY="32.0" text="Booking Id">
+         <font>
+            <Font name="Calibri" size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblBookingId" layoutX="130.0" layoutY="30.0" prefHeight="22.0" prefWidth="70.0">
+         <font>
+            <Font name="Calibri" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="32.0" layoutY="76.0" text="Capacity">
+         <font>
+            <Font name="Calibri" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="865.0" layoutY="30.0" prefHeight="22.0" prefWidth="42.0" text="Date">
+         <font>
+            <Font name="Calibri" size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblDate" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="927.0" layoutY="30.0" prefHeight="22.0" prefWidth="100.0">
+         <font>
+            <Font name="Calibri" size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtCapacity" layoutX="130.0" layoutY="69.0" prefHeight="32.0" prefWidth="90.0" style="-fx-background-color: transparent; -fx-border-color: black; -fx-border-width: 0 0 1px 0;">
+         <font>
+            <Font name="Calibri" size="16.0" />
+         </font>
+      </TextField>
+      <TableView fx:id="tblBooking" layoutX="30.0" layoutY="255.0" prefHeight="427.0" prefWidth="1002.0">
+         <columns>
+            <TableColumn fx:id="clmBookingId" prefWidth="125.59994125366211" text="Booking Id" />
+            <TableColumn fx:id="clmCustomerId" prefWidth="132.00001525878906" text="Customer Id" />
+            <TableColumn fx:id="clmServiceId" prefWidth="148.79998779296875" text="Service Id" />
+            <TableColumn fx:id="clmCapacity" prefWidth="123.20001220703125" text="Capacity" />
+            <TableColumn fx:id="clmVenue" prefWidth="128.79998779296875" text="Venue" />
+            <TableColumn fx:id="clmBookingData" prefWidth="190.39996337890625" text="Booking Date" />
+            <TableColumn fx:id="clmAction" prefWidth="148.79998779296875" text="Action" />
+         </columns>
+      </TableView>
+      <JFXComboBox fx:id="cmbCustomerId" layoutX="130.0" layoutY="122.0" onAction="#cmbCustomerIdOnAction" prefHeight="30.0" prefWidth="158.0" promptText="Select customer Id" stylesheets="@../style/Style.css" />
+      <Label layoutX="35.0" layoutY="126.0" text="Customer Id">
+         <font>
+            <Font name="Calibri" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="326.0" layoutY="126.0" text="Customer name">
+         <font>
+            <Font name="Calibri" size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblCustomerName" layoutX="474.0" layoutY="124.0" prefHeight="22.0" prefWidth="221.0">
+         <font>
+            <Font name="Calibri" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="34.0" layoutY="177.0" text="Service Id">
+         <font>
+            <Font name="Calibri" size="16.0" />
+         </font>
+      </Label>
+      <JFXComboBox fx:id="cmbServiceId" layoutX="127.0" layoutY="173.0" onAction="#cmbServiceIdOnAction" prefHeight="30.0" prefWidth="158.0" promptText="Select service id" stylesheets="@../style/Style.css" />
+      <Label layoutX="328.0" layoutY="177.0" text="Service type">
+         <font>
+            <Font name="Calibri" size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblServiceType" layoutX="474.0" layoutY="175.0" prefHeight="22.0" prefWidth="221.0">
+         <font>
+            <Font name="Calibri" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="326.0" layoutY="76.0" text="Venue">
+         <font>
+            <Font name="Calibri" size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtVenue" layoutX="474.0" layoutY="69.0" prefHeight="32.0" prefWidth="553.0" style="-fx-background-color: transparent; -fx-border-color: black; -fx-border-width: 0 0 1px 0;">
+         <font>
+            <Font name="Calibri" size="16.0" />
+         </font>
+      </TextField>
+      <Button layoutX="883.0" layoutY="190.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnAddToBookingOnAction" prefHeight="32.0" prefWidth="144.0" style="-fx-background-color: #6EC207; -fx-background-radius: 10;" text="Add To Booking" textFill="WHITE">
+         <font>
+            <Font name="Calibri Bold" size="14.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="CLOSED_HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="874.0" layoutY="695.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnCompleteBookingOnAction" prefHeight="32.0" prefWidth="158.0" style="-fx-background-color: #3498db; -fx-background-radius: 10;" text="Complete Booking" textFill="WHITE">
+         <font>
+            <Font name="Calibri Bold" size="14.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="CLOSED_HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="527.0" layoutY="695.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnResetOnAction" prefHeight="32.0" prefWidth="116.0" style="-fx-background-color: #e74c3c; -fx-background-radius: 10;" text="Reset" textFill="WHITE">
+         <font>
+            <Font name="Calibri Bold" size="14.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="CLOSED_HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="688.0" layoutY="695.0" mnemonicParsing="false" onAction="#btnGenerateReportOnAction" prefHeight="32.0" prefWidth="142.0" style="-fx-background-color: AD49E1; -fx-background-radius: 10;" text="generate Report" textFill="WHITE">
+         <font>
+            <Font name="Calibri" size="16.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

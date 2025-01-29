@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="737.0" prefWidth="1065.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.ijse.inspira1stsemesterproject.controller.ServiceController">
+   <children>
+      <Label fx:id="lblServiceId" layoutX="33.0" layoutY="25.0" text="Service Id">
+         <font>
+            <Font name="Calibri" size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblServiceIdData" layoutX="148.0" layoutY="23.0" prefHeight="22.0" prefWidth="79.0">
+         <font>
+            <Font name="Calibri" size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblPrice" layoutX="36.0" layoutY="117.0" text="Price">
+         <font>
+            <Font name="Calibri" size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblServiceType" layoutX="33.0" layoutY="70.0" text="Service type">
+         <font>
+            <Font name="Calibri" size="16.0" />
+         </font>
+      </Label>
+      <JFXComboBox fx:id="cmbServiceType" layoutX="148.0" layoutY="66.0" prefHeight="30.0" prefWidth="203.0" promptText="Choose your service type" stylesheets="@../style/Style.css" />
+      <TextField fx:id="txtPrice" layoutX="148.0" layoutY="113.0" prefHeight="30.0" prefWidth="203.0" promptText="Enter the price here" style="-fx-background-color: transparent; -fx-border-color: black; -fx-border-width: 0 0 1px 0;">
+         <font>
+            <Font name="Calibri" size="16.0" />
+         </font></TextField>
+      <TableView fx:id="tblService" layoutX="36.0" layoutY="258.0" onMouseClicked="#tblServiceOnAction" prefHeight="460.0" prefWidth="994.0">
+        <columns>
+          <TableColumn fx:id="clmServiceId" prefWidth="305.5999870300293" text="Service Id" />
+          <TableColumn fx:id="clmServiceType" prefWidth="380.0" text="Service Type" />
+            <TableColumn fx:id="clmPrice" prefWidth="309.5999755859375" text="Price" />
+        </columns>
+      </TableView>
+      <Button fx:id="btnSave" layoutX="930.0" layoutY="182.0" mnemonicParsing="false" onAction="#btnSaveOnAction" prefHeight="35.0" prefWidth="100.0" style="-fx-background-radius: 10; -fx-background-color: #6EC207;" text="Save">
+         <font>
+            <Font name="Calibri Bold" size="16.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnUpdate" layoutX="778.0" layoutY="182.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" prefHeight="35.0" prefWidth="100.0" style="-fx-background-radius: 10; -fx-background-color: #0D92F4;" text="Update">
+         <font>
+            <Font name="Calibri Bold" size="16.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnDelete" layoutX="621.0" layoutY="182.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" prefHeight="35.0" prefWidth="100.0" style="-fx-background-radius: 10; -fx-background-color: #C62E2E;" text="Delete">
+         <font>
+            <Font name="Calibri Bold" size="16.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnReset" layoutX="466.0" layoutY="182.0" mnemonicParsing="false" onAction="#btnResetOnAction" prefHeight="35.0" prefWidth="100.0" style="-fx-background-radius: 10; -fx-background-color: #C738BD;" text="Reset">
+         <font>
+            <Font name="Calibri Bold" size="16.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

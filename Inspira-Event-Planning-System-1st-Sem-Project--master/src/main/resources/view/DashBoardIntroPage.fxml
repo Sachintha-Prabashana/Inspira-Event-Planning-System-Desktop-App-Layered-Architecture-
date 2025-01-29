@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="homePane" prefHeight="737.0" prefWidth="1065.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.ijse.inspira1stsemesterproject.controller.DashBoardIntroController">
+   <children>
+      <ImageView fitHeight="737.0" fitWidth="850.0" layoutX="328.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/dashboard-image-wedding.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgLogOut" fitHeight="42.0" fitWidth="46.0" layoutX="983.0" layoutY="665.0" onMouseClicked="#imgLogOutOnClick" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/log-out-icon.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="540.0" fitWidth="559.0" layoutX="49.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/dashBoard-intro.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="256.0" layoutY="46.0" text="Inspira: Simplify event planning effortlessly!">
+         <font>
+            <Font name="Georgia Bold" size="24.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color green="0.7058823704719543" blue="0.8588235378265381" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color green="0.5137255191802979" blue="0.6901960968971252" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Label>
+   </children>
+</AnchorPane>

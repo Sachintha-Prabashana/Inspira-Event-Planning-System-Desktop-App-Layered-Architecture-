@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="737.0" prefWidth="1065.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.ijse.inspira1stsemesterproject.controller.ItemFormController">
+   <children>
+      <Label fx:id="lblItemId" layoutX="33.0" layoutY="40.0" text="Item Id">
+         <font>
+            <Font name="Calibri" size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblItemIdData" layoutX="129.0" layoutY="39.0" prefHeight="22.0" prefWidth="70.0">
+         <font>
+            <Font name="Calibri" size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblItemName" layoutX="33.0" layoutY="92.0" text="Item Name">
+         <font>
+            <Font name="Calibri" size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtItemName" layoutX="129.0" layoutY="87.0" prefHeight="32.0" prefWidth="135.0" style="-fx-background-color: transparent; -fx-border-color: black; -fx-border-width: 0 0 1px 0;">
+         <font>
+            <Font name="Calibri" size="16.0" />
+         </font>
+      </TextField>
+      <Label fx:id="lblCost" layoutX="33.0" layoutY="148.0" text="Cost">
+         <font>
+            <Font name="Calibri" size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtCost" layoutX="129.0" layoutY="143.0" prefHeight="32.0" prefWidth="135.0" style="-fx-background-color: transparent; -fx-border-color: black; -fx-border-width: 0 0 1px 0;">
+         <font>
+            <Font name="Calibri" size="16.0" />
+         </font>
+      </TextField>
+      <Label fx:id="lblSupplierId" layoutX="536.0" layoutY="148.0" text="Supplier Id">
+         <font>
+            <Font name="Calibri" size="16.0" />
+         </font>
+      </Label>
+      <JFXComboBox fx:id="cmbSupplierId" layoutX="641.0" layoutY="145.0" onAction="#cmbSupplierOnAction" prefHeight="26.0" prefWidth="135.0" promptText="Select Supplier Id" />
+      <Label fx:id="lblDescription" layoutX="304.0" layoutY="92.0" text="Description">
+         <font>
+            <Font name="Calibri" size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtDescription" layoutX="405.0" layoutY="87.0" prefHeight="32.0" prefWidth="626.0" style="-fx-background-color: transparent; -fx-border-color: black; -fx-border-width: 0 0 1px 0;">
+         <font>
+            <Font name="Calibri" size="16.0" />
+         </font>
+      </TextField>
+      <Button fx:id="btnSave" layoutX="931.0" layoutY="212.0" mnemonicParsing="false" onAction="#btnSaveOnAction" prefHeight="35.0" prefWidth="100.0" style="-fx-background-radius: 10; -fx-background-color: #6EC207;" text="Save">
+         <font>
+            <Font name="Calibri Bold" size="16.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnUpdate" layoutX="797.0" layoutY="213.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" prefHeight="35.0" prefWidth="100.0" style="-fx-background-radius: 10; -fx-background-color: #0D92F4;" text="Update">
+         <font>
+            <Font name="Calibri Bold" size="16.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnDelete" layoutX="659.0" layoutY="213.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" prefHeight="35.0" prefWidth="100.0" style="-fx-background-radius: 10; -fx-background-color: #C62E2E;" text="Delete">
+         <font>
+            <Font name="Calibri Bold" size="16.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnReset" layoutX="523.0" layoutY="213.0" mnemonicParsing="false" onAction="#btnResetOnAction" prefHeight="35.0" prefWidth="100.0" style="-fx-background-radius: 10; -fx-background-color: #C738BD;" text="Reset">
+         <font>
+            <Font name="Calibri Bold" size="16.0" />
+         </font>
+      </Button>
+      <Label fx:id="lblQuantity" layoutX="304.0" layoutY="148.0" text="Quantity">
+         <font>
+            <Font name="Calibri" size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtQuantity" layoutX="405.0" layoutY="143.0" prefHeight="32.0" prefWidth="100.0" style="-fx-background-color: transparent; -fx-border-color: black; -fx-border-width: 0 0 1px 0;">
+         <font>
+            <Font name="Calibri" size="16.0" />
+         </font>
+      </TextField>
+      <Label fx:id="lblSupplierName" layoutX="797.0" layoutY="147.0" text="Name">
+         <font>
+            <Font name="Calibri" size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblSupplierInfo" layoutX="859.0" layoutY="147.0" prefHeight="22.0" prefWidth="171.0">
+         <font>
+            <Font name="Calibri" size="16.0" />
+         </font>
+      </Label>
+      <TableView fx:id="tblItem" layoutX="33.0" layoutY="271.0" onMouseClicked="#tblItemOnClick" prefHeight="442.0" prefWidth="998.0">
+         <columns>
+            <TableColumn fx:id="clmItemId" prefWidth="101.59997177124023" text="Item Id" />
+            <TableColumn fx:id="clmSupplierId" prefWidth="111.20001220703125" text="Supplier Id" />
+            <TableColumn fx:id="clmItemName" prefWidth="157.60003662109375" text="Item Name" />
+            <TableColumn fx:id="clmDescription" prefWidth="329.5999450683594" text="Description" />
+            <TableColumn fx:id="clmCost" prefWidth="148.79998779296875" text="Cost" />
+            <TableColumn fx:id="clmQuantity" prefWidth="151.19989013671875" text="Quantity" />
+         </columns>
+      </TableView>
+   </children>
+</AnchorPane>

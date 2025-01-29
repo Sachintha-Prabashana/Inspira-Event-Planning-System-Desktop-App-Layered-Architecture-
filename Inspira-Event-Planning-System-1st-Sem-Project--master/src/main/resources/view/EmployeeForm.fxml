@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="737.0" prefWidth="1065.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.ijse.inspira1stsemesterproject.controller.EmployeeFormController">
+   <children>
+      <Label fx:id="lblEmployeeId" layoutX="38.0" layoutY="32.0" text="Employee Id">
+         <font>
+            <Font name="Calibri" size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblEmployeeIdData" layoutX="139.0" layoutY="31.0" prefHeight="22.0" prefWidth="70.0">
+         <font>
+            <Font name="Calibri" size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblFirstName" layoutX="38.0" layoutY="82.0" text="First Name">
+         <font>
+            <Font name="Calibri" size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtFirstName" layoutX="139.0" layoutY="77.0" prefHeight="32.0" prefWidth="380.0" style="-fx-background-color: transparent; -fx-border-color: black; -fx-border-width: 0 0 1px 0;">
+         <font>
+            <Font name="Calibri" size="16.0" />
+         </font>
+      </TextField>
+      <Label fx:id="lblLastName" layoutX="557.0" layoutY="82.0" text="Last Name">
+         <font>
+            <Font name="Calibri" size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtLastName" layoutX="648.0" layoutY="77.0" prefHeight="32.0" prefWidth="380.0" style="-fx-background-color: transparent; -fx-border-color: black; -fx-border-width: 0 0 1px 0;">
+         <font>
+            <Font name="Calibri" size="16.0" />
+         </font>
+      </TextField>
+      <Label fx:id="lblSalary" layoutX="38.0" layoutY="185.0" text="Salary">
+         <font>
+            <Font name="Calibri" size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblJobPosition" layoutX="270.0" layoutY="33.0" text="Job Position">
+         <font>
+            <Font name="Calibri" size="16.0" />
+         </font>
+      </Label>
+      <JFXComboBox fx:id="cmbJobPosition" layoutX="367.0" layoutY="25.0" prefHeight="31.0" prefWidth="151.0" promptText="Select job position" stylesheets="@../style/Style.css" />
+      <Label fx:id="lblDate" layoutX="875.0" layoutY="30.0" prefHeight="22.0" prefWidth="42.0" text="Date">
+         <font>
+            <Font name="Calibri" size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblDateData" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="918.0" layoutY="31.0" prefHeight="22.0" prefWidth="110.0">
+         <font>
+            <Font name="Calibri" size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtSalary" layoutX="139.0" layoutY="180.0" prefHeight="32.0" prefWidth="101.0" style="-fx-background-color: transparent; -fx-border-color: black; -fx-border-width: 0 0 1px 0;">
+         <font>
+            <Font name="Calibri" size="16.0" />
+         </font>
+      </TextField>
+      <Label fx:id="lblBookingId" layoutX="274.0" layoutY="185.0" text="Booking Id">
+         <font>
+            <Font name="Calibri" size="16.0" />
+         </font>
+      </Label>
+      <JFXComboBox fx:id="cmbBookingId" layoutX="367.0" layoutY="180.0" prefHeight="31.0" prefWidth="151.0" promptText="Select Booking Id" stylesheets="@../style/Style.css" />
+      <Label fx:id="lblEmail" layoutX="38.0" layoutY="133.0" text="Email">
+         <font>
+            <Font name="Calibri" size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtEmail" layoutX="139.0" layoutY="128.0" prefHeight="32.0" prefWidth="891.0" style="-fx-background-color: transparent; -fx-border-color: black; -fx-border-width: 0 0 1px 0;">
+         <font>
+            <Font name="Calibri" size="16.0" />
+         </font>
+      </TextField>
+      <Button fx:id="btnSave" layoutX="930.0" layoutY="177.0" mnemonicParsing="false" onAction="#btnSaveOnAction" prefHeight="35.0" prefWidth="100.0" style="-fx-background-radius: 10; -fx-background-color: #6EC207;" text="Save">
+         <font>
+            <Font name="Calibri Bold" size="16.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnUpdate" layoutX="805.0" layoutY="177.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" prefHeight="35.0" prefWidth="100.0" style="-fx-background-radius: 10; -fx-background-color: #0D92F4;" text="Update">
+         <font>
+            <Font name="Calibri Bold" size="16.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnDelete" layoutX="682.0" layoutY="177.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" prefHeight="35.0" prefWidth="100.0" style="-fx-background-radius: 10; -fx-background-color: #C62E2E;" text="Delete">
+         <font>
+            <Font name="Calibri Bold" size="16.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnReset" layoutX="557.0" layoutY="177.0" mnemonicParsing="false" onAction="#btnResetOnAction" prefHeight="35.0" prefWidth="100.0" style="-fx-background-radius: 10; -fx-background-color: #C738BD;" text="Reset">
+         <font>
+            <Font name="Calibri Bold" size="16.0" />
+         </font>
+      </Button>
+      <TableView fx:id="tblEmployee" layoutX="39.0" layoutY="248.0" onMouseClicked="#tblEmployeeOnClick" prefHeight="462.0" prefWidth="991.0">
+        <columns>
+          <TableColumn fx:id="clmEmployeeId" prefWidth="101.59997177124023" text="Employee Id" />
+          <TableColumn fx:id="clmFirstName" prefWidth="143.1999969482422" text="First Name" />
+            <TableColumn fx:id="clmLastName" prefWidth="156.00003051757812" text="Last Name" />
+            <TableColumn fx:id="clmJobPosition" prefWidth="106.4000244140625" text="Job Position" />
+            <TableColumn fx:id="clmDate" prefWidth="103.199951171875" text="Date" />
+            <TableColumn fx:id="clmSalary" prefWidth="111.20001220703125" text="Salary" />
+            <TableColumn fx:id="clmEmail" minWidth="0.0" prefWidth="188.00006103515625" text="Email" />
+            <TableColumn fx:id="clmBookingId" prefWidth="75.9998779296875" text="Booking Id" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

@@ -1,0 +1,47 @@
+#btnLogin, #btnVerify, #btnSubmit, #btnRegister, #btnNext , #btnReset{
+    -fx-font-family: 'Comic Sans MS';
+    -fx-background-color: #2980b9;
+    -fx-background-radius: 15px;
+    -fx-text-fill: white;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 4, 0, 0, 4);
+}
+
+#btnSave , #btnDelete , #btnUpdate , #btnSearch , #btnReset, #btnCustomerRepo , #btnGenerateRepo {
+    -fx-border-color: black;
+    -fx-border-radius: 10;
+}
+
+#lblLogin {
+    -fx-font-family: 'Roboto Mono';
+    -fx-font-weight: bold;
+    -fx-font-size: 50px;
+    -fx-text-fill-color: #2B2B2B;
+}
+
+#cmbEventType , #cmbCustTitle , #cmbBookingId , #cmbCustomerId , #cmbItemId , #cmbServiceType , #cmbSupplierId , #cmbJobPosition , #cmbServiceId{
+    -fx-font-family: 'Calibri';
+    -fx-font-size: 16;
+}
+
+#txtUsername, #txtPassword, #txtFirstName, #txtLastName, #txtEmail, #txtConPass , #txtPasswordVisible, #pwfConfirmPassword , #txtConfirmPassword,#pwfPassword{
+    -fx-background-color: transparent;
+    -fx-border-color: black;
+    -fx-border-radius: 15px;
+    -fx-background-radius: 15px;
+    -fx-font-size: 17px;
+    -fx-padding: 0 0 0 20px;
+}
+
+#txtOtp1, #txtOtp2, #txtOtp3, #txtOtp4 {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #6C63FF;
+    -fx-border-radius: 10px;
+    -fx-font-size: 24px;
+    -fx-padding: 10px;
+    -fx-pref-width: 70px;
+    -fx-min-height: 60px;
+    -fx-max-height: 60px;
+}
