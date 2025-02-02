@@ -36,4 +36,39 @@ public class EventSupplierDAOImpl implements EventSupplierDAO {
                 eventSupplier.getTotalPrice()
         );
     }
+
+    @Override
+    public String getNextId() throws SQLException, ClassNotFoundException {
+        return "";
+    }
+
+    @Override
+    public ArrayList<EventSupplier> getAll() throws SQLException, ClassNotFoundException {
+        return null;
+    }
+
+    @Override
+    public boolean save(EventSupplier entity) throws SQLException, ClassNotFoundException {
+        return false;
+    }
+
+    @Override
+    public boolean delete(String customerId) throws SQLException, ClassNotFoundException {
+        return false;
+    }
+
+    @Override
+    public boolean update(EventSupplier entity) throws SQLException, ClassNotFoundException {
+        return false;
+    }
+
+    @Override
+    public EventSupplier findById(String selectedCustomerId) throws SQLException, ClassNotFoundException {
+        return null;
+    }
+
+    @Override
+    public ArrayList<String> getAllIds() throws SQLException, ClassNotFoundException {
+        return null;
+    }
 }

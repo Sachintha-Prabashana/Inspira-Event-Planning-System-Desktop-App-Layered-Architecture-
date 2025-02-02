@@ -1,8 +1,10 @@
 package edu.ijse.inspira1stsemesterproject.bo.impl;
 
 import edu.ijse.inspira1stsemesterproject.bo.ItemBO;
+import edu.ijse.inspira1stsemesterproject.dao.DAOFactory;
 import edu.ijse.inspira1stsemesterproject.dao.custom.ItemDAO;
 import edu.ijse.inspira1stsemesterproject.dao.custom.impl.ItemDAOImpl;
+import edu.ijse.inspira1stsemesterproject.dao.custom.impl.ServiceDAOImpl;
 import edu.ijse.inspira1stsemesterproject.dto.CustomerDto;
 import edu.ijse.inspira1stsemesterproject.dto.ItemDto;
 import edu.ijse.inspira1stsemesterproject.entity.Customer;
@@ -16,7 +18,7 @@ import java.util.ArrayList;
 
 public class ItemBOImpl implements ItemBO {
 
-    ItemDAO itemDAO = new ItemDAOImpl();
+    ItemDAOImpl itemDAO = (ItemDAOImpl) DAOFactory.getInstance().getDao(DAOFactory.DAOType.ITEM);
     public String getNextItemId() throws SQLException, ClassNotFoundException {
         return itemDAO.getNextId();
     }

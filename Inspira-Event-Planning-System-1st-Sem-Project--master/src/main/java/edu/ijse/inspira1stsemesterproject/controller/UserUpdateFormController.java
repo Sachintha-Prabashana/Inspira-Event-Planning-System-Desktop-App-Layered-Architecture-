@@ -1,6 +1,7 @@
 package edu.ijse.inspira1stsemesterproject.controller;
 
 import com.jfoenix.controls.JFXComboBox;
+import edu.ijse.inspira1stsemesterproject.bo.BOFactory;
 import edu.ijse.inspira1stsemesterproject.bo.UserBO;
 import edu.ijse.inspira1stsemesterproject.bo.impl.UserBOImpl;
 import edu.ijse.inspira1stsemesterproject.dto.UserDto;
@@ -44,7 +45,7 @@ public class UserUpdateFormController implements Initializable {
     @FXML
     private TextField txtUsername;
 
-    private final UserBO userBO = new UserBOImpl();
+    private final UserBOImpl userBO = (UserBOImpl) BOFactory.getInstance().getBO(BOFactory.BOType.USER);
 
     public void initialize(URL url, ResourceBundle rb) {
         txtUsername.requestFocus();

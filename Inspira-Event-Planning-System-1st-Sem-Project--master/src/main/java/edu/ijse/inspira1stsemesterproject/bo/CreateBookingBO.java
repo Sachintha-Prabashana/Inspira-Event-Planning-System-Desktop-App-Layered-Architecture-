@@ -13,7 +13,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public interface CreateBookingBO {
+public interface CreateBookingBO extends SuperBO{
     ArrayList<String> loadServiceIds() throws SQLException, ClassNotFoundException ;
     ArrayList<String> loadCustomerIds() throws SQLException, ClassNotFoundException ;
     String getNextBookingId() throws SQLException, ClassNotFoundException ;

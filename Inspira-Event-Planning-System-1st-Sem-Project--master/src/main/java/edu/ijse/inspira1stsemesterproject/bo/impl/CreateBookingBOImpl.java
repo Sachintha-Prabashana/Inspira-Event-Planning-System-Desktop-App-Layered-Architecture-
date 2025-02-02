@@ -1,8 +1,10 @@
 package edu.ijse.inspira1stsemesterproject.bo.impl;
 
+import edu.ijse.inspira1stsemesterproject.bo.BOFactory;
 import edu.ijse.inspira1stsemesterproject.bo.CreateBookingBO;
 import edu.ijse.inspira1stsemesterproject.bo.CustomerBO;
 import edu.ijse.inspira1stsemesterproject.bo.ServiceBO;
+import edu.ijse.inspira1stsemesterproject.dao.DAOFactory;
 import edu.ijse.inspira1stsemesterproject.dao.custom.BookingDAO;
 import edu.ijse.inspira1stsemesterproject.dao.custom.BookingServiceDAO;
 import edu.ijse.inspira1stsemesterproject.dao.custom.CustomerDAO;
@@ -32,12 +34,12 @@ import java.util.List;
 
 public class CreateBookingBOImpl implements CreateBookingBO {
 
-    BookingServiceDAO bookingServiceDAO = new BookingServiceDAOImpl();
-    BookingDAO bookingDAO = new BookingDAOImpl();
+    BookingServiceDAOImpl bookingServiceDAO = (BookingServiceDAOImpl) DAOFactory.getInstance().getDao(DAOFactory.DAOType.BOOKING_SERVICE);
+    BookingDAOImpl bookingDAO = (BookingDAOImpl) DAOFactory.getInstance().getDao(DAOFactory.DAOType.BOOKING);
     //ServiceDAO serviceDAO = new ServiceDAOImpl();
-    ServiceBO serviceBO = new ServiceBOImpl();
+    ServiceBOImpl serviceBO = (ServiceBOImpl) BOFactory.getInstance().getBO(BOFactory.BOType.SERVICE);
     //CustomerDAO customerDAO = new CustomerDAOImpl();
-    CustomerBO customerBO = new CustomerBOImpl();
+    CustomerBOImpl customerBO = (CustomerBOImpl) BOFactory.getInstance().getBO(BOFactory.BOType.CUSTOMER);
     public ArrayList<String> loadServiceIds() throws SQLException, ClassNotFoundException {
         return serviceBO.getAllServiceIds();
     }

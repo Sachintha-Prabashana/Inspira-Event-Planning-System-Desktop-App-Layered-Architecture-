@@ -1,6 +1,7 @@
 package edu.ijse.inspira1stsemesterproject.controller;
 
 import com.jfoenix.controls.JFXComboBox;
+import edu.ijse.inspira1stsemesterproject.bo.BOFactory;
 import edu.ijse.inspira1stsemesterproject.bo.CreateBookingBO;
 import edu.ijse.inspira1stsemesterproject.bo.CustomerBO;
 import edu.ijse.inspira1stsemesterproject.bo.ServiceBO;
@@ -83,9 +84,8 @@ public class BookingController implements Initializable {
     @FXML
     private TextField txtVenue;
 
-    private final CreateBookingBO createBookingBO = new CreateBookingBOImpl();
-    private final CustomerBO customerBO = new CustomerBOImpl();
-    private final ServiceBO serviceBO = new ServiceBOImpl();
+    private final CreateBookingBOImpl createBookingBO = (CreateBookingBOImpl) BOFactory.getInstance().getBO(BOFactory.BOType.CREATE_BOOKING);
+    private final CustomerBOImpl customerBO = (CustomerBOImpl) BOFactory.getInstance().getBO(BOFactory.BOType.CUSTOMER);
 
 
     private final ObservableList<BookingTM> bookingTMS = FXCollections.observableArrayList();

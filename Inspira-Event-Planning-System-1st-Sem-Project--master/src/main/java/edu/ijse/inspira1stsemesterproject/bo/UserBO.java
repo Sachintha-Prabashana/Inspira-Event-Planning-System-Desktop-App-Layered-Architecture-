@@ -11,7 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public interface UserBO {
+public interface UserBO extends SuperBO{
     boolean validateUser(String username, String password) throws SQLException, ClassNotFoundException ;
     String getNextUserId() throws SQLException, ClassNotFoundException ;
     boolean saveUser(UserDto user) throws SQLException, ClassNotFoundException ;

@@ -1,6 +1,7 @@
 package edu.ijse.inspira1stsemesterproject.controller;
 
 import com.jfoenix.controls.JFXComboBox;
+import edu.ijse.inspira1stsemesterproject.bo.BOFactory;
 import edu.ijse.inspira1stsemesterproject.bo.ItemBO;
 import edu.ijse.inspira1stsemesterproject.bo.SupplierBO;
 import edu.ijse.inspira1stsemesterproject.bo.impl.ItemBOImpl;
@@ -101,8 +102,8 @@ public class ItemFormController implements Initializable {
     @FXML
     private TextField txtQuantity;
 
-    private final ItemBO itemBO = new ItemBOImpl();
-    private final SupplierBO supplierBO = new SupplierBOImpl();
+    private final ItemBOImpl itemBO = (ItemBOImpl) BOFactory.getInstance().getBO(BOFactory.BOType.ITEM);
+    private final SupplierBOImpl supplierBO = (SupplierBOImpl) BOFactory.getInstance().getBO(BOFactory.BOType.SUPPLIER);
 
     private static final String PRICE_PATTERN = "^[0-9]+(\\.[0-9]{1,2})?$";
     private static final String NAME_PATTERN = "^[A-Za-z ]+$";

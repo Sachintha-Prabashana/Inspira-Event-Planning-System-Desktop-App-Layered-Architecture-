@@ -1,6 +1,7 @@
 package edu.ijse.inspira1stsemesterproject.controller;
 
 import com.jfoenix.controls.JFXButton;
+import edu.ijse.inspira1stsemesterproject.bo.BOFactory;
 import edu.ijse.inspira1stsemesterproject.bo.UserBO;
 import edu.ijse.inspira1stsemesterproject.bo.impl.UserBOImpl;
 import javafx.animation.KeyFrame;
@@ -41,7 +42,7 @@ public class ForgotPasswordPageController implements Initializable {
     private TextField txtEmail;
 
     SendMailController sendMailController = new SendMailController();
-    UserBO userBO = new UserBOImpl();
+    UserBOImpl userBO = (UserBOImpl) BOFactory.getInstance().getBO(BOFactory.BOType.USER);
 
     public static String emailAddress = "";
     public static String otpGenerated = "0000";// Default value

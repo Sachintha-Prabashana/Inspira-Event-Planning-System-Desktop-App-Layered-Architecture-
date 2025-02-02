@@ -5,7 +5,7 @@ import edu.ijse.inspira1stsemesterproject.dto.EmployeeDto;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public interface EmployeeBO {
+public interface EmployeeBO extends SuperBO{
     String getNextEmployeeId() throws SQLException, ClassNotFoundException ;
     ArrayList<EmployeeDto> getAllEmployees() throws SQLException, ClassNotFoundException ;
     boolean saveEmployee(EmployeeDto dto) throws SQLException, ClassNotFoundException ;

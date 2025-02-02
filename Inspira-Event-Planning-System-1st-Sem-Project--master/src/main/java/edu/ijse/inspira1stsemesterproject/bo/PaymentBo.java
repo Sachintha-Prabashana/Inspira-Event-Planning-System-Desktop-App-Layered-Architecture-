@@ -6,7 +6,7 @@ import edu.ijse.inspira1stsemesterproject.util.CrudUtil;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public interface PaymentBo {
+public interface PaymentBo extends SuperBO{
     String getNextPaymentId() throws SQLException, ClassNotFoundException ;
     ArrayList<PaymentDto> getAllPayments() throws SQLException, ClassNotFoundException ;
     boolean savePayment(PaymentDto paymentDto) throws SQLException, ClassNotFoundException ;
