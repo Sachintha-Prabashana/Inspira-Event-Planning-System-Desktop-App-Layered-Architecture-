@@ -1,6 +1,7 @@
 package edu.ijse.inspira1stsemesterproject.controller;
 
 import com.jfoenix.controls.JFXComboBox;
+import edu.ijse.inspira1stsemesterproject.bo.BOFactory;
 import edu.ijse.inspira1stsemesterproject.bo.CreateBookingBO;
 import edu.ijse.inspira1stsemesterproject.bo.EmployeeBO;
 import edu.ijse.inspira1stsemesterproject.bo.impl.CreateBookingBOImpl;
@@ -114,8 +115,8 @@ public class EmployeeFormController implements Initializable {
     @FXML
     private TextField txtSalary;
 
-    private final EmployeeBO employeeBO = new EmployeeBOImpl();
-    private final CreateBookingBO bookingBo = new CreateBookingBOImpl();
+    private final EmployeeBOImpl employeeBO = (EmployeeBOImpl) BOFactory.getInstance().getBO(BOFactory.BOType.EMPLOYEE);
+    private final CreateBookingBOImpl bookingBo = (CreateBookingBOImpl) BOFactory.getInstance().getBO(BOFactory.BOType.CREATE_BOOKING);
 
     private static final String NAME_PATTERN = "^[A-Za-z ]+$";
     private static final String EMAIL_PATTERN = "^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$";

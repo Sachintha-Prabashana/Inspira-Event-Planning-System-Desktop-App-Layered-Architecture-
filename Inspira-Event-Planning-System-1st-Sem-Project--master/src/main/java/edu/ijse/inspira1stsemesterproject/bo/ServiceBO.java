@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public interface ServiceBO {
+public interface ServiceBO extends SuperBO{
     ArrayList<String> getAllServiceIds() throws SQLException, ClassNotFoundException ;
     ServiceDto findById(String selectedServiceId) throws SQLException, ClassNotFoundException ;
     String getNextServiceId() throws SQLException, ClassNotFoundException ;

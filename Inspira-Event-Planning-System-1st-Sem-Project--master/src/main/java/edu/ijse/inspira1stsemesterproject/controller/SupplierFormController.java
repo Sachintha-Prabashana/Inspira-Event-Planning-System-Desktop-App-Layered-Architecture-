@@ -1,5 +1,6 @@
 package edu.ijse.inspira1stsemesterproject.controller;
 
+import edu.ijse.inspira1stsemesterproject.bo.BOFactory;
 import edu.ijse.inspira1stsemesterproject.bo.SupplierBO;
 import edu.ijse.inspira1stsemesterproject.bo.impl.SupplierBOImpl;
 import edu.ijse.inspira1stsemesterproject.dto.SupplierDto;
@@ -67,7 +68,7 @@ public class SupplierFormController implements Initializable {
     @FXML
     private Label lblSupplierIdData;
 
-    SupplierBO supplierBO = new SupplierBOImpl();
+    SupplierBOImpl supplierBO = (SupplierBOImpl) BOFactory.getInstance().getBO(BOFactory.BOType.SUPPLIER);
 
     private static final String NAME_PATTERN = "^[A-Za-z ]+$";
     private static final String EMAIL_PATTERN = "^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$";

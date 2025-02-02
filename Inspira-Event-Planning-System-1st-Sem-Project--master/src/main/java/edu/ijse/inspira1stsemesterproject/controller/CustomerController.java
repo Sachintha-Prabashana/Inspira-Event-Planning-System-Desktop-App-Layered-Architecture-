@@ -1,5 +1,6 @@
 package edu.ijse.inspira1stsemesterproject.controller;
 
+import edu.ijse.inspira1stsemesterproject.bo.BOFactory;
 import edu.ijse.inspira1stsemesterproject.bo.CustomerBO;
 import edu.ijse.inspira1stsemesterproject.bo.impl.CustomerBOImpl;
 import edu.ijse.inspira1stsemesterproject.db.DBConnection;
@@ -119,8 +120,7 @@ public class CustomerController implements Initializable {
     @FXML
     private TextField txtNic;
 
-    private final CustomerBO customerBO = new CustomerBOImpl() {
-    };
+    private final CustomerBOImpl customerBO = (CustomerBOImpl) BOFactory.getInstance().getBO(BOFactory.BOType.CUSTOMER);
 
     private static final String NAME_PATTERN = "^[A-Za-z ]+$";
     private static final String NIC_PATTERN = "^[0-9]{9}[vVxX]||[0-9]{12}$";
@@ -178,7 +178,7 @@ public class CustomerController implements Initializable {
         btnDelete.setDisable(true);
         btnUpdate.setDisable(true);
         //btnCustomerRepo.setDisable(true);
-        btnGenerateRepo.setDisable(true);
+       // btnGenerateRepo.setDisable(true);
         //btnOpenMailSendModel.setDisable(true);
     }
 

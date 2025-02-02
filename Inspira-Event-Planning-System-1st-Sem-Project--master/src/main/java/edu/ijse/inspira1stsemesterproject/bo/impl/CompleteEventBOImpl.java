@@ -1,9 +1,7 @@
 package edu.ijse.inspira1stsemesterproject.bo.impl;
 
-import edu.ijse.inspira1stsemesterproject.bo.CompleteEventBO;
-import edu.ijse.inspira1stsemesterproject.bo.CreateBookingBO;
-import edu.ijse.inspira1stsemesterproject.bo.ItemBO;
-import edu.ijse.inspira1stsemesterproject.bo.SupplierBO;
+import edu.ijse.inspira1stsemesterproject.bo.*;
+import edu.ijse.inspira1stsemesterproject.dao.DAOFactory;
 import edu.ijse.inspira1stsemesterproject.dao.custom.EventDAO;
 import edu.ijse.inspira1stsemesterproject.dao.custom.EventSupplierDAO;
 import edu.ijse.inspira1stsemesterproject.dao.custom.ItemDAO;
@@ -28,13 +26,13 @@ import java.util.ArrayList;
 
 public class CompleteEventBOImpl implements CompleteEventBO {
 
-    SupplierBO supplierBO = new SupplierBOImpl();
-    CreateBookingBO createBookingBO = new CreateBookingBOImpl();
-    EventDAO eventDAO = new EventDAOImpl();
-    EventSupplierDAO eventSupplierDAO = new EventSupplierDAOImpl();
-    ItemDAO itemDAO = new ItemDAOImpl();
+    SupplierBOImpl supplierBO = (SupplierBOImpl) BOFactory.getInstance().getBO(BOFactory.BOType.SUPPLIER);
+    CreateBookingBOImpl createBookingBO = (CreateBookingBOImpl) BOFactory.getInstance().getBO(BOFactory.BOType.CREATE_BOOKING);
+    EventDAOImpl eventDAO = (EventDAOImpl) DAOFactory.getInstance().getDao(DAOFactory.DAOType.EVENT);
+    EventSupplierDAOImpl eventSupplierDAO = (EventSupplierDAOImpl) DAOFactory.getInstance().getDao(DAOFactory.DAOType.EVENT_SUPPLIER);
+    ItemDAOImpl itemDAO = (ItemDAOImpl) DAOFactory.getInstance().getDao(DAOFactory.DAOType.ITEM);
     ItemBO itemBo = new ItemBOImpl();
-    SupplierDAO supplierDAO = new SupplierDAOImpl();
+    SupplierDAOImpl supplierDAO = (SupplierDAOImpl) DAOFactory.getInstance().getDao(DAOFactory.DAOType.SUPPLIER);
 
     public ArrayList<String> loadSupplierIds() throws SQLException, ClassNotFoundException {
         return supplierBO.getAllSupplierIds();

@@ -1,8 +1,10 @@
 package edu.ijse.inspira1stsemesterproject.bo.impl;
 
 import edu.ijse.inspira1stsemesterproject.bo.ServiceBO;
+import edu.ijse.inspira1stsemesterproject.dao.DAOFactory;
 import edu.ijse.inspira1stsemesterproject.dao.custom.ServiceDAO;
 import edu.ijse.inspira1stsemesterproject.dao.custom.impl.ServiceDAOImpl;
+import edu.ijse.inspira1stsemesterproject.dao.custom.impl.SupplierDAOImpl;
 import edu.ijse.inspira1stsemesterproject.dto.EmployeeDto;
 import edu.ijse.inspira1stsemesterproject.dto.ServiceDto;
 import edu.ijse.inspira1stsemesterproject.entity.Employee;
@@ -15,7 +17,7 @@ import java.util.ArrayList;
 
 public class ServiceBOImpl implements ServiceBO {
 
-    ServiceDAO serviceDAO = new ServiceDAOImpl();
+    ServiceDAOImpl serviceDAO = (ServiceDAOImpl) DAOFactory.getInstance().getDao(DAOFactory.DAOType.SERVICE);
     public ArrayList<String> getAllServiceIds() throws SQLException, ClassNotFoundException {
        return serviceDAO.getAllIds();
     }

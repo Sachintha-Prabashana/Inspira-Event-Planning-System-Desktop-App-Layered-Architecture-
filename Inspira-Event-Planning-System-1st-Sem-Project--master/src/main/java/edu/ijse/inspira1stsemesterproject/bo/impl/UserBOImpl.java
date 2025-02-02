@@ -1,6 +1,7 @@
 package edu.ijse.inspira1stsemesterproject.bo.impl;
 
 import edu.ijse.inspira1stsemesterproject.bo.UserBO;
+import edu.ijse.inspira1stsemesterproject.dao.DAOFactory;
 import edu.ijse.inspira1stsemesterproject.dao.custom.UserDAO;
 import edu.ijse.inspira1stsemesterproject.dao.custom.impl.UserDAOImpl;
 import edu.ijse.inspira1stsemesterproject.db.DBConnection;
@@ -17,7 +18,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class UserBOImpl implements UserBO {
-    UserDAO userDAO = new UserDAOImpl();
+    UserDAOImpl userDAO = (UserDAOImpl) DAOFactory.getInstance().getDao(DAOFactory.DAOType.USER);
 
     @Override
     public boolean validateUser(String username, String password) throws SQLException, ClassNotFoundException {

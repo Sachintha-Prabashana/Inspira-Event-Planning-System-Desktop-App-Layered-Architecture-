@@ -1,6 +1,7 @@
 package edu.ijse.inspira1stsemesterproject.controller;
 
 import com.jfoenix.controls.JFXComboBox;
+import edu.ijse.inspira1stsemesterproject.bo.BOFactory;
 import edu.ijse.inspira1stsemesterproject.bo.ServiceBO;
 import edu.ijse.inspira1stsemesterproject.bo.impl.ServiceBOImpl;
 import edu.ijse.inspira1stsemesterproject.dto.ServiceDto;
@@ -64,7 +65,7 @@ public class ServiceController implements Initializable {
     @FXML
     private TextField txtPrice;
 
-    private final ServiceBO serviceBO = new ServiceBOImpl();
+    private final ServiceBOImpl serviceBO = (ServiceBOImpl) BOFactory.getInstance().getBO(BOFactory.BOType.SERVICE);
 
     private static final String PRICE_PATTERN = "^[0-9]+(\\.[0-9]{1,2})?$";
 

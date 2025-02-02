@@ -1,5 +1,6 @@
 package edu.ijse.inspira1stsemesterproject.controller;
 
+import edu.ijse.inspira1stsemesterproject.bo.BOFactory;
 import edu.ijse.inspira1stsemesterproject.bo.UserBO;
 import edu.ijse.inspira1stsemesterproject.bo.impl.UserBOImpl;
 import javafx.animation.KeyFrame;
@@ -56,7 +57,7 @@ public class SecondRegisterPageController {
     @FXML
     private TextField txtUsername;
 
-    private final UserBO userBO = new UserBOImpl();
+    private final UserBOImpl userBO = (UserBOImpl) BOFactory.getInstance().getBO(BOFactory.BOType.USER);
 
     private static final String PASSWORD_PATTERN = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=]).{8,}";
 

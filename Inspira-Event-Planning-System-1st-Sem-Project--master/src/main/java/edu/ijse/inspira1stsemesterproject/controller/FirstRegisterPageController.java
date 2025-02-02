@@ -1,5 +1,6 @@
 package edu.ijse.inspira1stsemesterproject.controller;
 
+import edu.ijse.inspira1stsemesterproject.bo.BOFactory;
 import edu.ijse.inspira1stsemesterproject.bo.UserBO;
 import edu.ijse.inspira1stsemesterproject.bo.impl.UserBOImpl;
 import edu.ijse.inspira1stsemesterproject.dto.UserDto;
@@ -63,7 +64,7 @@ public class FirstRegisterPageController {
 
     public static UserDto userDto = new UserDto();
 
-    private UserBO userBO = new UserBOImpl();
+    private UserBOImpl userBO = (UserBOImpl) BOFactory.getInstance().getBO(BOFactory.BOType.USER);
 
     private static final String EMAIL_PATTERN = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@gmail\\.com$";
 

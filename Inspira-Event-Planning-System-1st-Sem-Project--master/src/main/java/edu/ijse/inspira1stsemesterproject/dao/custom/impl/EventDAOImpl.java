@@ -24,6 +24,11 @@ public class EventDAOImpl implements EventDAO {
         return "E001";
     }
 
+    @Override
+    public ArrayList<Event> getAll() throws SQLException, ClassNotFoundException {
+        return null;
+    }
+
 
     public boolean save(Event entity) throws SQLException, ClassNotFoundException {
         boolean isEventSaved = CrudUtil.execute(
@@ -37,6 +42,26 @@ public class EventDAOImpl implements EventDAO {
                 entity.getDate()
         );
         return isEventSaved;
+    }
+
+    @Override
+    public boolean delete(String customerId) throws SQLException, ClassNotFoundException {
+        return false;
+    }
+
+    @Override
+    public boolean update(Event entity) throws SQLException, ClassNotFoundException {
+        return false;
+    }
+
+    @Override
+    public Event findById(String selectedCustomerId) throws SQLException, ClassNotFoundException {
+        return null;
+    }
+
+    @Override
+    public ArrayList<String> getAllIds() throws SQLException, ClassNotFoundException {
+        return null;
     }
 
     @Override

@@ -1,6 +1,7 @@
 package edu.ijse.inspira1stsemesterproject.controller;
 
 import com.jfoenix.controls.JFXButton;
+import edu.ijse.inspira1stsemesterproject.bo.BOFactory;
 import edu.ijse.inspira1stsemesterproject.bo.UserBO;
 import edu.ijse.inspira1stsemesterproject.bo.impl.UserBOImpl;
 import edu.ijse.inspira1stsemesterproject.dto.UserDto;
@@ -62,7 +63,7 @@ public class OtpVerifiedFormController implements Initializable {
 
     //private static final String PASSWORD_PATTERN = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=]).{8,}$";
 
-    private UserBO userBO = new UserBOImpl();
+    private UserBOImpl userBO = (UserBOImpl) BOFactory.getInstance().getBO(BOFactory.BOType.USER);
 
 
 

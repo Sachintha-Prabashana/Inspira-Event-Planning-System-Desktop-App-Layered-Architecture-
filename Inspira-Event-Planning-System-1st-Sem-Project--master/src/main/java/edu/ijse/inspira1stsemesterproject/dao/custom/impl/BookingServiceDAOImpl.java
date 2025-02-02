@@ -34,4 +34,38 @@ public class BookingServiceDAOImpl implements BookingServiceDAO {
         );
     }
 
+    @Override
+    public String getNextId() throws SQLException, ClassNotFoundException {
+        return "";
+    }
+
+    @Override
+    public ArrayList<BookingService> getAll() throws SQLException, ClassNotFoundException {
+        return null;
+    }
+
+    @Override
+    public boolean save(BookingService entity) throws SQLException, ClassNotFoundException {
+        return false;
+    }
+
+    @Override
+    public boolean delete(String customerId) throws SQLException, ClassNotFoundException {
+        return false;
+    }
+
+    @Override
+    public boolean update(BookingService entity) throws SQLException, ClassNotFoundException {
+        return false;
+    }
+
+    @Override
+    public BookingService findById(String selectedCustomerId) throws SQLException, ClassNotFoundException {
+        return null;
+    }
+
+    @Override
+    public ArrayList<String> getAllIds() throws SQLException, ClassNotFoundException {
+        return null;
+    }
 }

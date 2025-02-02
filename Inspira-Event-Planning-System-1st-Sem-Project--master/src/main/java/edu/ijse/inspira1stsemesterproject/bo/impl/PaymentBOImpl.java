@@ -1,6 +1,7 @@
 package edu.ijse.inspira1stsemesterproject.bo.impl;
 
 import edu.ijse.inspira1stsemesterproject.bo.PaymentBo;
+import edu.ijse.inspira1stsemesterproject.dao.DAOFactory;
 import edu.ijse.inspira1stsemesterproject.dao.custom.PaymentDAO;
 import edu.ijse.inspira1stsemesterproject.dao.custom.impl.PaymentDAOImpl;
 import edu.ijse.inspira1stsemesterproject.dto.EmployeeDto;
@@ -14,8 +15,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class PaymentBOImpl implements PaymentBo {
+    PaymentDAOImpl paymentDAO = (PaymentDAOImpl) DAOFactory.getInstance().getDao(DAOFactory.DAOType.PAYMENT);
 
-    PaymentDAO paymentDAO = new PaymentDAOImpl();
     public String getNextPaymentId() throws SQLException, ClassNotFoundException {
         return paymentDAO.getNextId();
     }

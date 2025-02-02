@@ -82,27 +82,8 @@ public class BookingDAOImpl implements BookingDAO {
     }
 
     public boolean updateBookingStatusToUsed(String bookingId) throws SQLException, ClassNotFoundException {
-        Connection connection = DBConnection.getInstance().getConnection();
+        return CrudUtil.execute("UPDATE booking SET status = ? WHERE booking_id = ?", "used", bookingId);
 
-        if (connection == null) {
-            throw new SQLException("Failed to obtain database connection.");
-        }
-
-        try {
-            String query = "UPDATE booking SET status = ? WHERE booking_id = ?";
-
-            PreparedStatement preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setString(1, "used");
-            preparedStatement.setString(2, bookingId);
-
-            int rowsAffected = preparedStatement.executeUpdate();
-
-            return rowsAffected > 0;
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return false;
-        }
     }
 
 

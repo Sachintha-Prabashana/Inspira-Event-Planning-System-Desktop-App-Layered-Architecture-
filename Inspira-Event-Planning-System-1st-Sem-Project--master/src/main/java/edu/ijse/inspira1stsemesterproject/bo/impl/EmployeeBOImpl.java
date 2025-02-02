@@ -1,8 +1,10 @@
 package edu.ijse.inspira1stsemesterproject.bo.impl;
 
 import edu.ijse.inspira1stsemesterproject.bo.EmployeeBO;
+import edu.ijse.inspira1stsemesterproject.dao.DAOFactory;
 import edu.ijse.inspira1stsemesterproject.dao.custom.EmployeeDAO;
 import edu.ijse.inspira1stsemesterproject.dao.custom.impl.EmployeeDAOImpl;
+import edu.ijse.inspira1stsemesterproject.dao.custom.impl.ServiceDAOImpl;
 import edu.ijse.inspira1stsemesterproject.dto.CustomerDto;
 import edu.ijse.inspira1stsemesterproject.dto.EmployeeDto;
 import edu.ijse.inspira1stsemesterproject.entity.Customer;
@@ -15,7 +17,8 @@ import java.util.ArrayList;
 
 public class EmployeeBOImpl implements EmployeeBO {
 
-EmployeeDAO employeeDAO = new EmployeeDAOImpl();
+    EmployeeDAOImpl employeeDAO = (EmployeeDAOImpl) DAOFactory.getInstance().getDao(DAOFactory.DAOType.EMPLOYEE);
+
     public String getNextEmployeeId() throws SQLException, ClassNotFoundException {
         return employeeDAO.getNextId();
     }

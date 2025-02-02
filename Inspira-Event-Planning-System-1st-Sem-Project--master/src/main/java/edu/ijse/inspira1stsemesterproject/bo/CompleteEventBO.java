@@ -8,7 +8,7 @@ import java.sql.Date;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public interface CompleteEventBO {
+public interface CompleteEventBO extends SuperBO{
     boolean completeEventCreation(EventDto eventDto) throws SQLException, ClassNotFoundException;
     ArrayList<String> loadSupplierIds() throws SQLException, ClassNotFoundException ;
     ArrayList<String> loadBookingIds() throws SQLException, ClassNotFoundException ;

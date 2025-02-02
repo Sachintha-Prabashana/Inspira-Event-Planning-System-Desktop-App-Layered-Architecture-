@@ -5,7 +5,7 @@ import edu.ijse.inspira1stsemesterproject.dto.CustomerDto;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public interface CustomerBO {
+public interface CustomerBO extends SuperBO{
     String getNextCustomerId() throws SQLException, ClassNotFoundException;
     ArrayList<CustomerDto> getAllCustomer() throws SQLException, ClassNotFoundException ;
     boolean saveCustomer(CustomerDto customerDto) throws SQLException, ClassNotFoundException ;

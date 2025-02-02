@@ -1,8 +1,10 @@
 package edu.ijse.inspira1stsemesterproject.bo.impl;
 
 import edu.ijse.inspira1stsemesterproject.bo.SupplierBO;
+import edu.ijse.inspira1stsemesterproject.dao.DAOFactory;
 import edu.ijse.inspira1stsemesterproject.dao.custom.SupplierDAO;
 import edu.ijse.inspira1stsemesterproject.dao.custom.impl.SupplierDAOImpl;
+import edu.ijse.inspira1stsemesterproject.dto.CustomerDto;
 import edu.ijse.inspira1stsemesterproject.dto.SupplierDto;
 import edu.ijse.inspira1stsemesterproject.entity.Customer;
 import edu.ijse.inspira1stsemesterproject.entity.Supplier;
@@ -14,50 +16,31 @@ import java.util.ArrayList;
 
 public class SupplierBOImpl implements SupplierBO {
 
-    SupplierDAO supplierDAO = new SupplierDAOImpl();
+    SupplierDAOImpl supplierDAO = (SupplierDAOImpl) DAOFactory.getInstance().getDao(DAOFactory.DAOType.SUPPLIER);
     public String getNextSupplierId() throws SQLException, ClassNotFoundException {
         return supplierDAO.getNextId();
     }
 
     public ArrayList<SupplierDto> getAllSuppliers() throws SQLException, ClassNotFoundException {
-        ResultSet rst = CrudUtil.execute("select * from supplier");
-
         ArrayList<SupplierDto> supplierDtos = new ArrayList<>();
+        ArrayList<Supplier> suppliersList = supplierDAO.getAll();
+        for (Supplier supplier : suppliersList) {
+            supplierDtos.add(
+                    new SupplierDto(supplier.getSupplierId(),supplier.getSupplierName(),supplier.getEmail()));
 
-        while (rst.next()) {
-            SupplierDto supplierDto = new SupplierDto(
-                    rst.getString(1),
-                    rst.getString(2),
-                    rst.getString(3)
-            );
-            supplierDtos.add(supplierDto);
         }
         return supplierDtos;
     }
 
     public ArrayList<String> getAllSupplierIds() throws SQLException, ClassNotFoundException {
-        ResultSet rst = CrudUtil.execute("select supplier_id from supplier");
-
-        ArrayList<String> supplierIds = new ArrayList<>();
-
-        while (rst.next()) {
-            supplierIds.add(rst.getString(1));
-        }
-
-        return supplierIds;
+        return supplierDAO.getAllIds();
     }
 
     public SupplierDto findById(String selectedSupplierId) throws SQLException, ClassNotFoundException {
-        ResultSet rst = CrudUtil.execute("select * from supplier where supplier_id=?", selectedSupplierId);
-
-        if (rst.next()) {
-            return new SupplierDto(
-                    rst.getString(1),
-                    rst.getString(2),
-                    rst.getString(3)
-            );
-        }
-        return null;
+        Supplier supplier = supplierDAO.findById(selectedSupplierId);
+        return new SupplierDto
+                (supplier.getSupplierId(),supplier.getSupplierName(),supplier.getEmail()
+                );
 
     }
 

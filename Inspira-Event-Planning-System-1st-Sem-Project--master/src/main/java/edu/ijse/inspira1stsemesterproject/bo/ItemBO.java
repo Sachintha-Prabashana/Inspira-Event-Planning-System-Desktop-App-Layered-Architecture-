@@ -6,7 +6,7 @@ import edu.ijse.inspira1stsemesterproject.util.CrudUtil;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public interface ItemBO {
+public interface ItemBO extends SuperBO{
     String getNextItemId() throws SQLException, ClassNotFoundException ;
     ArrayList<ItemDto> getAllItems() throws SQLException, ClassNotFoundException ;
     ItemDto findById(String selectedItemId) throws SQLException, ClassNotFoundException ;

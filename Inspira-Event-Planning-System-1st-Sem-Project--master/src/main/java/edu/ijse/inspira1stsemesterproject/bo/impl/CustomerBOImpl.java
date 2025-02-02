@@ -1,6 +1,7 @@
 package edu.ijse.inspira1stsemesterproject.bo.impl;
 
 import edu.ijse.inspira1stsemesterproject.bo.CustomerBO;
+import edu.ijse.inspira1stsemesterproject.dao.DAOFactory;
 import edu.ijse.inspira1stsemesterproject.dao.custom.CustomerDAO;
 import edu.ijse.inspira1stsemesterproject.dao.custom.impl.CustomerDAOImpl;
 import edu.ijse.inspira1stsemesterproject.dto.CustomerDto;
@@ -13,7 +14,7 @@ import java.util.ArrayList;
 
 public class CustomerBOImpl implements CustomerBO {
 
-    CustomerDAO customerDAO = new CustomerDAOImpl();
+    CustomerDAOImpl customerDAO = (CustomerDAOImpl) DAOFactory.getInstance().getDao(DAOFactory.DAOType.CUSTOMER);
     public String getNextCustomerId() throws SQLException, ClassNotFoundException {
         return customerDAO.getNextId();
     }

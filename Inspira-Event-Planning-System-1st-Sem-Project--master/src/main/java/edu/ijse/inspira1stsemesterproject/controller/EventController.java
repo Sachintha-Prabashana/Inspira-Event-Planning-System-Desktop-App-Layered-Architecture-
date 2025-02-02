@@ -1,6 +1,7 @@
 package edu.ijse.inspira1stsemesterproject.controller;
 
 import com.jfoenix.controls.JFXComboBox;
+import edu.ijse.inspira1stsemesterproject.bo.BOFactory;
 import edu.ijse.inspira1stsemesterproject.bo.CompleteEventBO;
 import edu.ijse.inspira1stsemesterproject.bo.SupplierBO;
 import edu.ijse.inspira1stsemesterproject.bo.impl.CompleteEventBOImpl;
@@ -119,8 +120,8 @@ public class EventController implements Initializable {
     private static final String PRICE_PATTERN = "^[0-9]+(\\.[0-9]{1,2})?$";
 
 
-    private final SupplierBO supplierBO = new SupplierBOImpl();
-    CompleteEventBO completeEventBO = new CompleteEventBOImpl();
+   // private final  SupplierBOImpl supplierBO = (SupplierBOImpl) BOFactory.getInstance().getBO(BOFactory.BOType.SUPPLIER);
+    CompleteEventBOImpl completeEventBO = (CompleteEventBOImpl) BOFactory.getInstance().getBO(BOFactory.BOType.COMPLETE_EVENT);
 
     private final ObservableList<EventTM> eventTMS = FXCollections.observableArrayList();
 
