@@ -34,12 +34,12 @@ import java.util.List;
 
 public class CreateBookingBOImpl implements CreateBookingBO {
 
-    BookingServiceDAOImpl bookingServiceDAO = (BookingServiceDAOImpl) DAOFactory.getInstance().getDao(DAOFactory.DAOType.BOOKING_SERVICE);
-    BookingDAOImpl bookingDAO = (BookingDAOImpl) DAOFactory.getInstance().getDao(DAOFactory.DAOType.BOOKING);
+    BookingServiceDAO bookingServiceDAO = (BookingServiceDAO) DAOFactory.getInstance().getDao(DAOFactory.DAOType.BOOKING_SERVICE);
+    BookingDAO bookingDAO = (BookingDAO) DAOFactory.getInstance().getDao(DAOFactory.DAOType.BOOKING);
     //ServiceDAO serviceDAO = new ServiceDAOImpl();
-    ServiceBOImpl serviceBO = (ServiceBOImpl) BOFactory.getInstance().getBO(BOFactory.BOType.SERVICE);
+    ServiceBO serviceBO = (ServiceBO) BOFactory.getInstance().getBO(BOFactory.BOType.SERVICE);
     //CustomerDAO customerDAO = new CustomerDAOImpl();
-    CustomerBOImpl customerBO = (CustomerBOImpl) BOFactory.getInstance().getBO(BOFactory.BOType.CUSTOMER);
+    CustomerBO customerBO = (CustomerBO) BOFactory.getInstance().getBO(BOFactory.BOType.CUSTOMER);
     public ArrayList<String> loadServiceIds() throws SQLException, ClassNotFoundException {
         return serviceBO.getAllServiceIds();
     }
@@ -59,6 +59,10 @@ public class CreateBookingBOImpl implements CreateBookingBO {
     public ServiceDto findById(String selectedServiceId) throws SQLException, ClassNotFoundException {
         return serviceBO.findById(selectedServiceId);
 
+    }
+
+    public CustomerDto findByCustomerId(String selectedCustomerId) throws SQLException, ClassNotFoundException {
+        return customerBO.findById(selectedCustomerId);
     }
 
     public boolean saveBooking(BookingDto bookingDto) throws SQLException, ClassNotFoundException {

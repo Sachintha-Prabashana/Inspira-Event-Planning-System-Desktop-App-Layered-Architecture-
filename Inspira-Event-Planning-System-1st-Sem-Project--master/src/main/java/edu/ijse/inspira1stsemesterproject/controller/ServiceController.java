@@ -65,7 +65,7 @@ public class ServiceController implements Initializable {
     @FXML
     private TextField txtPrice;
 
-    private final ServiceBOImpl serviceBO = (ServiceBOImpl) BOFactory.getInstance().getBO(BOFactory.BOType.SERVICE);
+    private final ServiceBO serviceBO = (ServiceBO) BOFactory.getInstance().getBO(BOFactory.BOType.SERVICE);
 
     private static final String PRICE_PATTERN = "^[0-9]+(\\.[0-9]{1,2})?$";
 

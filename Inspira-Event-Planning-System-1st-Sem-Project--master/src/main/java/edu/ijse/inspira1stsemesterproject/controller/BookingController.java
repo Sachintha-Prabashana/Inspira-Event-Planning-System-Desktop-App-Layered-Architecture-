@@ -84,7 +84,7 @@ public class BookingController implements Initializable {
     @FXML
     private TextField txtVenue;
 
-    private final CreateBookingBOImpl createBookingBO = (CreateBookingBOImpl) BOFactory.getInstance().getBO(BOFactory.BOType.CREATE_BOOKING);
+    private final CreateBookingBO createBookingBO = (CreateBookingBO) BOFactory.getInstance().getBO(BOFactory.BOType.CREATE_BOOKING);
     private final CustomerBOImpl customerBO = (CustomerBOImpl) BOFactory.getInstance().getBO(BOFactory.BOType.CUSTOMER);
 
 
@@ -315,7 +315,7 @@ public class BookingController implements Initializable {
     @FXML
     void cmbCustomerIdOnAction(ActionEvent event) throws SQLException, ClassNotFoundException {
         String selectedCustomerId = cmbCustomerId.getSelectionModel().getSelectedItem();
-        CustomerDto customerDto = customerBO.findById(selectedCustomerId);
+        CustomerDto customerDto = createBookingBO.findByCustomerId(selectedCustomerId);
 
         // If customer found (customerDTO not null)
         if (customerDto != null) {

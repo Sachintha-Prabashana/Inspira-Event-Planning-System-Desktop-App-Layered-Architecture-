@@ -121,7 +121,7 @@ public class EventController implements Initializable {
 
 
    // private final  SupplierBOImpl supplierBO = (SupplierBOImpl) BOFactory.getInstance().getBO(BOFactory.BOType.SUPPLIER);
-    CompleteEventBOImpl completeEventBO = (CompleteEventBOImpl) BOFactory.getInstance().getBO(BOFactory.BOType.COMPLETE_EVENT);
+    CompleteEventBO completeEventBO = (CompleteEventBO) BOFactory.getInstance().getBO(BOFactory.BOType.COMPLETE_EVENT);
 
     private final ObservableList<EventTM> eventTMS = FXCollections.observableArrayList();
 

@@ -17,7 +17,7 @@ import java.util.ArrayList;
 
 public class EmployeeBOImpl implements EmployeeBO {
 
-    EmployeeDAOImpl employeeDAO = (EmployeeDAOImpl) DAOFactory.getInstance().getDao(DAOFactory.DAOType.EMPLOYEE);
+    EmployeeDAO employeeDAO = (EmployeeDAO) DAOFactory.getInstance().getDao(DAOFactory.DAOType.EMPLOYEE);
 
     public String getNextEmployeeId() throws SQLException, ClassNotFoundException {
         return employeeDAO.getNextId();

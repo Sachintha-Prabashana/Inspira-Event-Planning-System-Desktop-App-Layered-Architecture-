@@ -14,7 +14,7 @@ import java.util.ArrayList;
 
 public class CustomerBOImpl implements CustomerBO {
 
-    CustomerDAOImpl customerDAO = (CustomerDAOImpl) DAOFactory.getInstance().getDao(DAOFactory.DAOType.CUSTOMER);
+    CustomerDAO customerDAO = (CustomerDAO) DAOFactory.getInstance().getDao(DAOFactory.DAOType.CUSTOMER);
     public String getNextCustomerId() throws SQLException, ClassNotFoundException {
         return customerDAO.getNextId();
     }

@@ -70,8 +70,8 @@ public class PaymentController implements Initializable {
     private static final String AMOUNT_PATTERN = "^[0-9]+(\\.[0-9]{1,2})?$";
 
 
-    private final PaymentBOImpl paymentBo = (PaymentBOImpl) BOFactory.getInstance().getBO(BOFactory.BOType.PAYMENT);
-    private final CreateBookingBOImpl createBookingBO = (CreateBookingBOImpl) BOFactory.getInstance().getBO(BOFactory.BOType.CREATE_BOOKING);
+    private final PaymentBo paymentBo = (PaymentBo) BOFactory.getInstance().getBO(BOFactory.BOType.PAYMENT);
+    private final CreateBookingBO createBookingBO = (CreateBookingBO) BOFactory.getInstance().getBO(BOFactory.BOType.CREATE_BOOKING);
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

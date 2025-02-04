@@ -16,7 +16,7 @@ import java.util.ArrayList;
 
 public class SupplierBOImpl implements SupplierBO {
 
-    SupplierDAOImpl supplierDAO = (SupplierDAOImpl) DAOFactory.getInstance().getDao(DAOFactory.DAOType.SUPPLIER);
+    SupplierDAO supplierDAO = (SupplierDAO) DAOFactory.getInstance().getDao(DAOFactory.DAOType.SUPPLIER);
     public String getNextSupplierId() throws SQLException, ClassNotFoundException {
         return supplierDAO.getNextId();
     }

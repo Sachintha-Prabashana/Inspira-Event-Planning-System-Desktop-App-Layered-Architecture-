@@ -102,8 +102,8 @@ public class ItemFormController implements Initializable {
     @FXML
     private TextField txtQuantity;
 
-    private final ItemBOImpl itemBO = (ItemBOImpl) BOFactory.getInstance().getBO(BOFactory.BOType.ITEM);
-    private final SupplierBOImpl supplierBO = (SupplierBOImpl) BOFactory.getInstance().getBO(BOFactory.BOType.SUPPLIER);
+    private final ItemBO itemBO = (ItemBO) BOFactory.getInstance().getBO(BOFactory.BOType.ITEM);
+    private final SupplierBO supplierBO = (SupplierBO) BOFactory.getInstance().getBO(BOFactory.BOType.SUPPLIER);
 
     private static final String PRICE_PATTERN = "^[0-9]+(\\.[0-9]{1,2})?$";
     private static final String NAME_PATTERN = "^[A-Za-z ]+$";

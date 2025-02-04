@@ -18,7 +18,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class UserBOImpl implements UserBO {
-    UserDAOImpl userDAO = (UserDAOImpl) DAOFactory.getInstance().getDao(DAOFactory.DAOType.USER);
+    UserDAO userDAO = (UserDAO) DAOFactory.getInstance().getDao(DAOFactory.DAOType.USER);
 
     @Override
     public boolean validateUser(String username, String password) throws SQLException, ClassNotFoundException {

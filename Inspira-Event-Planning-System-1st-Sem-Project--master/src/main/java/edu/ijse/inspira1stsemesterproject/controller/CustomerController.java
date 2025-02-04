@@ -120,7 +120,7 @@ public class CustomerController implements Initializable {
     @FXML
     private TextField txtNic;
 
-    private final CustomerBOImpl customerBO = (CustomerBOImpl) BOFactory.getInstance().getBO(BOFactory.BOType.CUSTOMER);
+    private final CustomerBO customerBO = (CustomerBO) BOFactory.getInstance().getBO(BOFactory.BOType.CUSTOMER);
 
     private static final String NAME_PATTERN = "^[A-Za-z ]+$";
     private static final String NIC_PATTERN = "^[0-9]{9}[vVxX]||[0-9]{12}$";
