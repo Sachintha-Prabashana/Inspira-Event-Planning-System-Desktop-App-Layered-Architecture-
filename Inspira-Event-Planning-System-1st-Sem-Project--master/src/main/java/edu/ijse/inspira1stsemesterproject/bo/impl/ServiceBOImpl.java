@@ -17,7 +17,7 @@ import java.util.ArrayList;
 
 public class ServiceBOImpl implements ServiceBO {
 
-    ServiceDAOImpl serviceDAO = (ServiceDAOImpl) DAOFactory.getInstance().getDao(DAOFactory.DAOType.SERVICE);
+    ServiceDAO serviceDAO = (ServiceDAO) DAOFactory.getInstance().getDao(DAOFactory.DAOType.SERVICE);
     public ArrayList<String> getAllServiceIds() throws SQLException, ClassNotFoundException {
        return serviceDAO.getAllIds();
     }

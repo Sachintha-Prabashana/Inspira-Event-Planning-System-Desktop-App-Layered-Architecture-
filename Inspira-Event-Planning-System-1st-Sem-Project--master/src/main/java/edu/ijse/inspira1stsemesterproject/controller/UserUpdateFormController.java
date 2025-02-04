@@ -45,7 +45,7 @@ public class UserUpdateFormController implements Initializable {
     @FXML
     private TextField txtUsername;
 
-    private final UserBOImpl userBO = (UserBOImpl) BOFactory.getInstance().getBO(BOFactory.BOType.USER);
+    private final UserBO userBO = (UserBO) BOFactory.getInstance().getBO(BOFactory.BOType.USER);
 
     public void initialize(URL url, ResourceBundle rb) {
         txtUsername.requestFocus();

@@ -18,7 +18,7 @@ import java.util.ArrayList;
 
 public class ItemBOImpl implements ItemBO {
 
-    ItemDAOImpl itemDAO = (ItemDAOImpl) DAOFactory.getInstance().getDao(DAOFactory.DAOType.ITEM);
+    ItemDAO itemDAO = (ItemDAO) DAOFactory.getInstance().getDao(DAOFactory.DAOType.ITEM);
     public String getNextItemId() throws SQLException, ClassNotFoundException {
         return itemDAO.getNextId();
     }

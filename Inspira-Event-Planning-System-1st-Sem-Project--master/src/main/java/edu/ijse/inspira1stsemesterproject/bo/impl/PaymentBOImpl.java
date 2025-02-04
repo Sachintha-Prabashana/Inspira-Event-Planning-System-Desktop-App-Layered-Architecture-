@@ -15,7 +15,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class PaymentBOImpl implements PaymentBo {
-    PaymentDAOImpl paymentDAO = (PaymentDAOImpl) DAOFactory.getInstance().getDao(DAOFactory.DAOType.PAYMENT);
+    PaymentDAO paymentDAO = (PaymentDAO) DAOFactory.getInstance().getDao(DAOFactory.DAOType.PAYMENT);
 
     public String getNextPaymentId() throws SQLException, ClassNotFoundException {
         return paymentDAO.getNextId();

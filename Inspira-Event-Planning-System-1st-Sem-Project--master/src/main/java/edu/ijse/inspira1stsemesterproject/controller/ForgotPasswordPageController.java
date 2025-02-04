@@ -42,7 +42,7 @@ public class ForgotPasswordPageController implements Initializable {
     private TextField txtEmail;
 
     SendMailController sendMailController = new SendMailController();
-    UserBOImpl userBO = (UserBOImpl) BOFactory.getInstance().getBO(BOFactory.BOType.USER);
+    UserBO userBO = (UserBO) BOFactory.getInstance().getBO(BOFactory.BOType.USER);
 
     public static String emailAddress = "";
     public static String otpGenerated = "0000";// Default value

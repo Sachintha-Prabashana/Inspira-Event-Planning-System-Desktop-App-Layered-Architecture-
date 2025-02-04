@@ -61,7 +61,7 @@ public class LoginController implements Initializable {
     @FXML
     private TextField txtUsername;
 
-    private final UserBOImpl userBO = (UserBOImpl) BOFactory.getInstance().getBO(BOFactory.BOType.USER);
+    private final UserBO userBO = (UserBO) BOFactory.getInstance().getBO(BOFactory.BOType.USER);
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

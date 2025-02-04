@@ -26,13 +26,13 @@ import java.util.ArrayList;
 
 public class CompleteEventBOImpl implements CompleteEventBO {
 
-    SupplierBOImpl supplierBO = (SupplierBOImpl) BOFactory.getInstance().getBO(BOFactory.BOType.SUPPLIER);
-    CreateBookingBOImpl createBookingBO = (CreateBookingBOImpl) BOFactory.getInstance().getBO(BOFactory.BOType.CREATE_BOOKING);
-    EventDAOImpl eventDAO = (EventDAOImpl) DAOFactory.getInstance().getDao(DAOFactory.DAOType.EVENT);
-    EventSupplierDAOImpl eventSupplierDAO = (EventSupplierDAOImpl) DAOFactory.getInstance().getDao(DAOFactory.DAOType.EVENT_SUPPLIER);
-    ItemDAOImpl itemDAO = (ItemDAOImpl) DAOFactory.getInstance().getDao(DAOFactory.DAOType.ITEM);
-    ItemBO itemBo = new ItemBOImpl();
-    SupplierDAOImpl supplierDAO = (SupplierDAOImpl) DAOFactory.getInstance().getDao(DAOFactory.DAOType.SUPPLIER);
+    SupplierBO supplierBO = (SupplierBO) BOFactory.getInstance().getBO(BOFactory.BOType.SUPPLIER);
+    CreateBookingBO createBookingBO = (CreateBookingBO) BOFactory.getInstance().getBO(BOFactory.BOType.CREATE_BOOKING);
+    EventDAO eventDAO = (EventDAO) DAOFactory.getInstance().getDao(DAOFactory.DAOType.EVENT);
+    EventSupplierDAO eventSupplierDAO = (EventSupplierDAO) DAOFactory.getInstance().getDao(DAOFactory.DAOType.EVENT_SUPPLIER);
+    ItemDAO itemDAO = (ItemDAO) DAOFactory.getInstance().getDao(DAOFactory.DAOType.ITEM);
+    ItemBO itemBo = (ItemBO) BOFactory.getInstance().getBO(BOFactory.BOType.ITEM);
+    SupplierDAO supplierDAO = (SupplierDAO) DAOFactory.getInstance().getDao(DAOFactory.DAOType.SUPPLIER);
 
     public ArrayList<String> loadSupplierIds() throws SQLException, ClassNotFoundException {
         return supplierBO.getAllSupplierIds();
