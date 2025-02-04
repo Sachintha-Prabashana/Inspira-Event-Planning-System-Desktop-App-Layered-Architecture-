@@ -30,9 +30,7 @@ public class CompleteEventBOImpl implements CompleteEventBO {
     CreateBookingBO createBookingBO = (CreateBookingBO) BOFactory.getInstance().getBO(BOFactory.BOType.CREATE_BOOKING);
     EventDAO eventDAO = (EventDAO) DAOFactory.getInstance().getDao(DAOFactory.DAOType.EVENT);
     EventSupplierDAO eventSupplierDAO = (EventSupplierDAO) DAOFactory.getInstance().getDao(DAOFactory.DAOType.EVENT_SUPPLIER);
-    ItemDAO itemDAO = (ItemDAO) DAOFactory.getInstance().getDao(DAOFactory.DAOType.ITEM);
     ItemBO itemBo = (ItemBO) BOFactory.getInstance().getBO(BOFactory.BOType.ITEM);
-    SupplierDAO supplierDAO = (SupplierDAO) DAOFactory.getInstance().getDao(DAOFactory.DAOType.SUPPLIER);
 
     public ArrayList<String> loadSupplierIds() throws SQLException, ClassNotFoundException {
         return supplierBO.getAllSupplierIds();
@@ -49,25 +47,12 @@ public class CompleteEventBOImpl implements CompleteEventBO {
 
     //combo box ekn find krnn
     public ItemDto findByItemId(String selectedItemId) throws SQLException, ClassNotFoundException {
-        Item item = itemDAO.findById(selectedItemId);
-        return new ItemDto(
-                item.getItemId(),
-                item.getItemName(),
-                item.getItemDescription(),
-                item.getItemPrice(),
-                item.getItemQuantity(),
-                item.getSupplierId()
-        );
+        return itemBo.findById(selectedItemId);
 
     }
 
     public SupplierDto findBySupplierId(String selectedSupplierId) throws SQLException, ClassNotFoundException {
-        Supplier supplier = supplierDAO.findById(selectedSupplierId);
-        return new SupplierDto(
-                supplier.getSupplierId(),
-                supplier.getSupplierName(),
-                supplier.getEmail()
-        );
+        return supplierBO.findById(selectedSupplierId);
     }
 
     public ArrayList<String> loadItemIDs(String itemId) throws SQLException, ClassNotFoundException {
