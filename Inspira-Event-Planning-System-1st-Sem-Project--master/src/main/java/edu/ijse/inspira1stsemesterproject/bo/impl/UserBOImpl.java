@@ -3,17 +3,9 @@ package edu.ijse.inspira1stsemesterproject.bo.impl;
 import edu.ijse.inspira1stsemesterproject.bo.UserBO;
 import edu.ijse.inspira1stsemesterproject.dao.DAOFactory;
 import edu.ijse.inspira1stsemesterproject.dao.custom.UserDAO;
-import edu.ijse.inspira1stsemesterproject.dao.custom.impl.UserDAOImpl;
-import edu.ijse.inspira1stsemesterproject.db.DBConnection;
-import edu.ijse.inspira1stsemesterproject.dto.CustomerDto;
 import edu.ijse.inspira1stsemesterproject.dto.UserDto;
-import edu.ijse.inspira1stsemesterproject.entity.Customer;
 import edu.ijse.inspira1stsemesterproject.entity.User;
-import edu.ijse.inspira1stsemesterproject.util.CrudUtil;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 

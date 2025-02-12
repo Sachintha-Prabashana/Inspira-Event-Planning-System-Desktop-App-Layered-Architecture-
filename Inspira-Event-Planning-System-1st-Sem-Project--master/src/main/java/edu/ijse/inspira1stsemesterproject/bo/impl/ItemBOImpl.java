@@ -3,16 +3,9 @@ package edu.ijse.inspira1stsemesterproject.bo.impl;
 import edu.ijse.inspira1stsemesterproject.bo.ItemBO;
 import edu.ijse.inspira1stsemesterproject.dao.DAOFactory;
 import edu.ijse.inspira1stsemesterproject.dao.custom.ItemDAO;
-import edu.ijse.inspira1stsemesterproject.dao.custom.impl.ItemDAOImpl;
-import edu.ijse.inspira1stsemesterproject.dao.custom.impl.ServiceDAOImpl;
-import edu.ijse.inspira1stsemesterproject.dto.CustomerDto;
 import edu.ijse.inspira1stsemesterproject.dto.ItemDto;
-import edu.ijse.inspira1stsemesterproject.entity.Customer;
-import edu.ijse.inspira1stsemesterproject.entity.EventSupplier;
 import edu.ijse.inspira1stsemesterproject.entity.Item;
-import edu.ijse.inspira1stsemesterproject.util.CrudUtil;
 
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -44,6 +37,12 @@ public class ItemBOImpl implements ItemBO {
 
     public ItemDto findById(String selectedItemId) throws SQLException, ClassNotFoundException {
         Item item = itemDAO.findById(selectedItemId);
+
+        if (item == null) {
+            System.err.println("No item found for itemId: " + selectedItemId);
+            return null;  // Or handle it in another way (e.g., throw an exception)
+        }
+
         return new ItemDto(
                 item.getItemId(),
                 item.getItemName(),
@@ -51,10 +50,9 @@ public class ItemBOImpl implements ItemBO {
                 item.getItemPrice(),
                 item.getItemQuantity(),
                 item.getSupplierId()
-
         );
-
     }
+
 
 
     public ArrayList<String> getAllItemIds(String supplierId) throws SQLException, ClassNotFoundException {

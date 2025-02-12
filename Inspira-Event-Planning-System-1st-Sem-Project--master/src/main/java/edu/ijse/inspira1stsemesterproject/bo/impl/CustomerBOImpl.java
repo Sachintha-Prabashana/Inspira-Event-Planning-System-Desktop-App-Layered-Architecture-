@@ -3,12 +3,9 @@ package edu.ijse.inspira1stsemesterproject.bo.impl;
 import edu.ijse.inspira1stsemesterproject.bo.CustomerBO;
 import edu.ijse.inspira1stsemesterproject.dao.DAOFactory;
 import edu.ijse.inspira1stsemesterproject.dao.custom.CustomerDAO;
-import edu.ijse.inspira1stsemesterproject.dao.custom.impl.CustomerDAOImpl;
 import edu.ijse.inspira1stsemesterproject.dto.CustomerDto;
 import edu.ijse.inspira1stsemesterproject.entity.Customer;
-import edu.ijse.inspira1stsemesterproject.util.CrudUtil;
 
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -67,6 +64,11 @@ public class CustomerBOImpl implements CustomerBO {
 //        return null;
 
         Customer customer = customerDAO.findById(selectedCustomerId);
+
+        if (customer == null) {
+            System.err.println("No customer found for customerId: " + selectedCustomerId);
+            return null;
+        }
         return new CustomerDto
                 (customer.getCustomerId(),customer.getCustomerTitle(),customer.getFirstName(),customer.getLastName(),customer.getNic(),customer.getEmail(),customer.getRegistrationDate()
                 );

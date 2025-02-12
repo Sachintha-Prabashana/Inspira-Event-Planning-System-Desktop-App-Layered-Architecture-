@@ -3,14 +3,9 @@ package edu.ijse.inspira1stsemesterproject.bo.impl;
 import edu.ijse.inspira1stsemesterproject.bo.PaymentBo;
 import edu.ijse.inspira1stsemesterproject.dao.DAOFactory;
 import edu.ijse.inspira1stsemesterproject.dao.custom.PaymentDAO;
-import edu.ijse.inspira1stsemesterproject.dao.custom.impl.PaymentDAOImpl;
-import edu.ijse.inspira1stsemesterproject.dto.EmployeeDto;
 import edu.ijse.inspira1stsemesterproject.dto.PaymentDto;
-import edu.ijse.inspira1stsemesterproject.entity.Employee;
 import edu.ijse.inspira1stsemesterproject.entity.Payment;
-import edu.ijse.inspira1stsemesterproject.util.CrudUtil;
 
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 

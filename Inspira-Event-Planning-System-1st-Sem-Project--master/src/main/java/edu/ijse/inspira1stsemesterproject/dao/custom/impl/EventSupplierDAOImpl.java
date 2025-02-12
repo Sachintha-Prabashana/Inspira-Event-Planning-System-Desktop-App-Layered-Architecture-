@@ -2,9 +2,8 @@ package edu.ijse.inspira1stsemesterproject.dao.custom.impl;
 
 import edu.ijse.inspira1stsemesterproject.dao.custom.EventSupplierDAO;
 import edu.ijse.inspira1stsemesterproject.dao.custom.ItemDAO;
-import edu.ijse.inspira1stsemesterproject.dto.EventSupplierDto;
 import edu.ijse.inspira1stsemesterproject.entity.EventSupplier;
-import edu.ijse.inspira1stsemesterproject.util.CrudUtil;
+import edu.ijse.inspira1stsemesterproject.dao.SQLUtil;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -28,7 +27,7 @@ public class EventSupplierDAOImpl implements EventSupplierDAO {
     }
 
     public boolean saveEventSuppliers(EventSupplier eventSupplier) throws SQLException, ClassNotFoundException {
-        return CrudUtil.execute(
+        return SQLUtil.execute(
                 "INSERT INTO EventSupplier (event_id, supplier_id, itemQty, price) VALUES (?,?,?,?)",
                 eventSupplier.getEventId(),
                 eventSupplier.getSupplierId(),

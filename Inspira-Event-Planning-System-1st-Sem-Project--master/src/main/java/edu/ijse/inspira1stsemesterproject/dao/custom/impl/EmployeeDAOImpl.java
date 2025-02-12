@@ -1,9 +1,8 @@
 package edu.ijse.inspira1stsemesterproject.dao.custom.impl;
 
 import edu.ijse.inspira1stsemesterproject.dao.custom.EmployeeDAO;
-import edu.ijse.inspira1stsemesterproject.dto.EmployeeDto;
 import edu.ijse.inspira1stsemesterproject.entity.Employee;
-import edu.ijse.inspira1stsemesterproject.util.CrudUtil;
+import edu.ijse.inspira1stsemesterproject.dao.SQLUtil;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -11,7 +10,7 @@ import java.util.ArrayList;
 
 public class EmployeeDAOImpl implements EmployeeDAO {
     public String getNextId() throws SQLException, ClassNotFoundException {
-        ResultSet rst = CrudUtil.execute("SELECT employee_id FROM employee ORDER BY employee_id DESC LIMIT 1");
+        ResultSet rst = SQLUtil.execute("SELECT employee_id FROM employee ORDER BY employee_id DESC LIMIT 1");
 
         if (rst.next()) {
             String lastId = rst.getString(1); // Last employee ID, e.g., "EM001"
@@ -34,7 +33,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
     }
 
     public ArrayList<Employee> getAll() throws SQLException, ClassNotFoundException {
-        ResultSet rst = CrudUtil.execute("select * from employee");
+        ResultSet rst = SQLUtil.execute("select * from employee");
 
         ArrayList<Employee> employees = new ArrayList<>();
 
@@ -56,7 +55,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
     }
 
     public boolean save(Employee entity) throws SQLException, ClassNotFoundException {
-        return CrudUtil.execute("insert into employee values(?,?,?,?,?,?,?,?)",
+        return SQLUtil.execute("insert into employee values(?,?,?,?,?,?,?,?)",
                 entity.getEmployeeId(),
                 entity.getFirstName(),
                 entity.getLastName(),
@@ -69,7 +68,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
     }
 
     public boolean update(Employee entity) throws SQLException, ClassNotFoundException {
-        return CrudUtil.execute(
+        return SQLUtil.execute(
                 "update employee set  first_name = ?,  last_name = ?, position = ?, Join_date = ?, salary = ?, email = ?, booking_id  = ? where employee_id = ?",
                 entity.getFirstName(),
                 entity.getLastName(),
@@ -93,6 +92,6 @@ public class EmployeeDAOImpl implements EmployeeDAO {
     }
 
     public boolean delete(String employeeId) throws SQLException, ClassNotFoundException {
-        return CrudUtil.execute("delete from employee where employee_id =?", employeeId);
+        return SQLUtil.execute("delete from employee where employee_id =?", employeeId);
     }
 }

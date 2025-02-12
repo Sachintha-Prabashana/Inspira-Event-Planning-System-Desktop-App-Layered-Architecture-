@@ -1,7 +1,6 @@
 package edu.ijse.inspira1stsemesterproject.bo;
 
 import edu.ijse.inspira1stsemesterproject.dto.ItemDto;
-import edu.ijse.inspira1stsemesterproject.util.CrudUtil;
 
 import java.sql.SQLException;
 import java.util.ArrayList;

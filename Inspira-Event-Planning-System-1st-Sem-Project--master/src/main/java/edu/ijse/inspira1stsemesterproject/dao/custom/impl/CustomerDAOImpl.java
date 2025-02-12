@@ -1,9 +1,8 @@
 package edu.ijse.inspira1stsemesterproject.dao.custom.impl;
 
 import edu.ijse.inspira1stsemesterproject.dao.custom.CustomerDAO;
-import edu.ijse.inspira1stsemesterproject.dto.CustomerDto;
 import edu.ijse.inspira1stsemesterproject.entity.Customer;
-import edu.ijse.inspira1stsemesterproject.util.CrudUtil;
+import edu.ijse.inspira1stsemesterproject.dao.SQLUtil;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -11,7 +10,7 @@ import java.util.ArrayList;
 
 public class CustomerDAOImpl implements CustomerDAO {
     public String getNextId() throws SQLException, ClassNotFoundException {
-        ResultSet rst = CrudUtil.execute("select customer_id from customer order by customer_id desc limit 1");
+        ResultSet rst = SQLUtil.execute("select customer_id from customer order by customer_id desc limit 1");
 
         if (rst.next()) {
             String lastId = rst.getString(1); // Last customer ID
@@ -24,7 +23,7 @@ public class CustomerDAOImpl implements CustomerDAO {
     }
 
     public ArrayList<Customer> getAll() throws SQLException, ClassNotFoundException {
-        ResultSet rst = CrudUtil.execute("select * from customer");
+        ResultSet rst = SQLUtil.execute("select * from customer");
 
         ArrayList<Customer> customers = new ArrayList<>();
 
@@ -44,7 +43,7 @@ public class CustomerDAOImpl implements CustomerDAO {
     }
 
     public boolean save(Customer entity) throws SQLException, ClassNotFoundException {
-        return CrudUtil.execute("insert into customer values(?,?,?,?,?,?,?)",
+        return SQLUtil.execute("insert into customer values(?,?,?,?,?,?,?)",
                 entity.getCustomerId(),
                 entity.getCustomerTitle(),
                 entity.getFirstName(),
@@ -56,11 +55,11 @@ public class CustomerDAOImpl implements CustomerDAO {
     }
 
     public boolean delete(String customerId) throws SQLException, ClassNotFoundException {
-        return CrudUtil.execute("delete from customer where customer_id=?", customerId);
+        return SQLUtil.execute("delete from customer where customer_id=?", customerId);
     }
 
     public boolean update(Customer entity) throws SQLException, ClassNotFoundException {
-        return CrudUtil.execute(
+        return SQLUtil.execute(
                 "update customer set  cust_title = ?, first_name = ?, last_name = ?, nic = ?, email = ?, registration_date = ? where customer_id = ?",
                 entity.getCustomerTitle(),
                 entity.getFirstName(),
@@ -73,7 +72,7 @@ public class CustomerDAOImpl implements CustomerDAO {
     }
 
     public Customer findById(String selectedCustomerId) throws SQLException, ClassNotFoundException {
-        ResultSet rst = CrudUtil.execute("select * from customer where customer_id=?", selectedCustomerId);
+        ResultSet rst = SQLUtil.execute("select * from customer where customer_id=?", selectedCustomerId);
 
         if (rst.next()) {
             return new Customer(
@@ -90,7 +89,7 @@ public class CustomerDAOImpl implements CustomerDAO {
     }
 
     public ArrayList<String> getAllIds() throws SQLException, ClassNotFoundException {
-        ResultSet rst = CrudUtil.execute("select customer_id from customer");
+        ResultSet rst = SQLUtil.execute("select customer_id from customer");
 
         ArrayList<String> customerIds = new ArrayList<>();
 

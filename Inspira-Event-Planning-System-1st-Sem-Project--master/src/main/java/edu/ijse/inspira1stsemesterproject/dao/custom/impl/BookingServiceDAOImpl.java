@@ -1,9 +1,8 @@
 package edu.ijse.inspira1stsemesterproject.dao.custom.impl;
 
 import edu.ijse.inspira1stsemesterproject.dao.custom.BookingServiceDAO;
-import edu.ijse.inspira1stsemesterproject.dto.BookingServiceDto;
 import edu.ijse.inspira1stsemesterproject.entity.BookingService;
-import edu.ijse.inspira1stsemesterproject.util.CrudUtil;
+import edu.ijse.inspira1stsemesterproject.dao.SQLUtil;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -26,7 +25,7 @@ public class BookingServiceDAOImpl implements BookingServiceDAO {
 
     @Override
     public boolean saveBookingServiceDetails(BookingService entity) throws SQLException, ClassNotFoundException {
-        return CrudUtil.execute(
+        return SQLUtil.execute(
                 "INSERT INTO BookingService (booking_id, service_id, date) VALUES (?, ?, ?)",  // Match the column names if needed
                 entity.getBookingId(),
                 entity.getServiceId(),

@@ -1,11 +1,9 @@
 package edu.ijse.inspira1stsemesterproject.dao.custom.impl;
 
 import edu.ijse.inspira1stsemesterproject.dao.custom.ItemDAO;
-import edu.ijse.inspira1stsemesterproject.dto.EventSupplierDto;
-import edu.ijse.inspira1stsemesterproject.dto.ItemDto;
 import edu.ijse.inspira1stsemesterproject.entity.EventSupplier;
 import edu.ijse.inspira1stsemesterproject.entity.Item;
-import edu.ijse.inspira1stsemesterproject.util.CrudUtil;
+import edu.ijse.inspira1stsemesterproject.dao.SQLUtil;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -13,7 +11,7 @@ import java.util.ArrayList;
 
 public class ItemDAOImpl implements ItemDAO {
     public String getNextId() throws SQLException, ClassNotFoundException {
-        ResultSet rst = CrudUtil.execute("select item_id from item order by item_id desc limit 1");
+        ResultSet rst = SQLUtil.execute("select item_id from item order by item_id desc limit 1");
 
         if (rst.next()) {
             String lastId = rst.getString(1); // Last customer ID
@@ -26,7 +24,7 @@ public class ItemDAOImpl implements ItemDAO {
     }
 
     public ArrayList<Item> getAll() throws SQLException, ClassNotFoundException {
-        ResultSet rst = CrudUtil.execute("select * from item");
+        ResultSet rst = SQLUtil.execute("select * from item");
 
         ArrayList<Item> itemsList = new ArrayList<>();
 
@@ -47,7 +45,7 @@ public class ItemDAOImpl implements ItemDAO {
 
 
     public Item findById(String selectedItemId) throws SQLException, ClassNotFoundException {
-        ResultSet rst = CrudUtil.execute("select * from item where item_id=?", selectedItemId);
+        ResultSet rst = SQLUtil.execute("select * from item where item_id=?", selectedItemId);
 
         if (rst.next()) {
             return new Item(
@@ -71,7 +69,7 @@ public class ItemDAOImpl implements ItemDAO {
     public ArrayList<String> getAllItemIds(String supplierId) throws SQLException, ClassNotFoundException {
         String query = "SELECT item_id FROM item WHERE supplier_id = ?";
 
-        ResultSet rst = CrudUtil.execute(query, supplierId);
+        ResultSet rst = SQLUtil.execute(query, supplierId);
 
         ArrayList<String> itemIds = new ArrayList<>();
 
@@ -94,7 +92,7 @@ public class ItemDAOImpl implements ItemDAO {
         }
 
         // Update the item quantity in the database
-        return CrudUtil.execute(
+        return SQLUtil.execute(
                 "UPDATE item SET quantity = quantity - ? WHERE item_id = ? AND quantity >= ?",
                 eventSupplier.getItemQuantity(),  // Quantity to reduce
                 eventSupplier.getItemId(),       // Item ID to identify the item
@@ -104,11 +102,11 @@ public class ItemDAOImpl implements ItemDAO {
 
 
     public boolean delete(String itemId) throws SQLException, ClassNotFoundException {
-        return CrudUtil.execute("delete from item where item_id=?", itemId);
+        return SQLUtil.execute("delete from item where item_id=?", itemId);
     }
 
     public boolean save(Item itemDto) throws SQLException, ClassNotFoundException {
-        return CrudUtil.execute("insert into item values(?,?,?,?,?,?)",
+        return SQLUtil.execute("insert into item values(?,?,?,?,?,?)",
                 itemDto.getItemId(),
                 itemDto.getItemName(),
                 itemDto.getItemDescription(),
@@ -121,7 +119,7 @@ public class ItemDAOImpl implements ItemDAO {
     }
 
     public boolean update(Item itemDto) throws SQLException, ClassNotFoundException {
-        return CrudUtil.execute(
+        return SQLUtil.execute(
                 "update item set  item_name = ?, description = ? , cost = ?, quantity = ?, supplier_id = ? where item_id = ?",
                 itemDto.getItemName(),
                 itemDto.getItemDescription(),

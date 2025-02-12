@@ -3,15 +3,9 @@ package edu.ijse.inspira1stsemesterproject.bo.impl;
 import edu.ijse.inspira1stsemesterproject.bo.ServiceBO;
 import edu.ijse.inspira1stsemesterproject.dao.DAOFactory;
 import edu.ijse.inspira1stsemesterproject.dao.custom.ServiceDAO;
-import edu.ijse.inspira1stsemesterproject.dao.custom.impl.ServiceDAOImpl;
-import edu.ijse.inspira1stsemesterproject.dao.custom.impl.SupplierDAOImpl;
-import edu.ijse.inspira1stsemesterproject.dto.EmployeeDto;
 import edu.ijse.inspira1stsemesterproject.dto.ServiceDto;
-import edu.ijse.inspira1stsemesterproject.entity.Employee;
 import edu.ijse.inspira1stsemesterproject.entity.Service;
-import edu.ijse.inspira1stsemesterproject.util.CrudUtil;
 
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -24,6 +18,11 @@ public class ServiceBOImpl implements ServiceBO {
 
     public ServiceDto findById(String selectedServiceId) throws SQLException, ClassNotFoundException {
         Service service = serviceDAO.findById(selectedServiceId);
+
+        if (service == null) {
+            System.err.println("No service found for serviceId: " + selectedServiceId);
+            return null;
+        }
         return new ServiceDto(
                 service.getServiceId(),
                 service.getPrice(),

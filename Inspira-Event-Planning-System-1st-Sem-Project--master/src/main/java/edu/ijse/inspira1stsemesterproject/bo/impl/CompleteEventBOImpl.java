@@ -4,23 +4,13 @@ import edu.ijse.inspira1stsemesterproject.bo.*;
 import edu.ijse.inspira1stsemesterproject.dao.DAOFactory;
 import edu.ijse.inspira1stsemesterproject.dao.custom.EventDAO;
 import edu.ijse.inspira1stsemesterproject.dao.custom.EventSupplierDAO;
-import edu.ijse.inspira1stsemesterproject.dao.custom.ItemDAO;
-import edu.ijse.inspira1stsemesterproject.dao.custom.SupplierDAO;
-import edu.ijse.inspira1stsemesterproject.dao.custom.impl.EventDAOImpl;
-import edu.ijse.inspira1stsemesterproject.dao.custom.impl.EventSupplierDAOImpl;
-import edu.ijse.inspira1stsemesterproject.dao.custom.impl.ItemDAOImpl;
-import edu.ijse.inspira1stsemesterproject.dao.custom.impl.SupplierDAOImpl;
 import edu.ijse.inspira1stsemesterproject.db.DBConnection;
-import edu.ijse.inspira1stsemesterproject.dto.CustomerDto;
 import edu.ijse.inspira1stsemesterproject.dto.EventDto;
 import edu.ijse.inspira1stsemesterproject.dto.ItemDto;
 import edu.ijse.inspira1stsemesterproject.dto.SupplierDto;
 import edu.ijse.inspira1stsemesterproject.entity.*;
-import edu.ijse.inspira1stsemesterproject.util.CrudUtil;
 
 import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -85,7 +75,6 @@ public class CompleteEventBOImpl implements CompleteEventBO {
         try {
             connection.setAutoCommit(false); // Start transaction
 
-            // Save booking details
             result = eventDAO.save(event);
             if (!result) {
                 connection.rollback(); // Rollback on failure

@@ -3,14 +3,9 @@ package edu.ijse.inspira1stsemesterproject.bo.impl;
 import edu.ijse.inspira1stsemesterproject.bo.SupplierBO;
 import edu.ijse.inspira1stsemesterproject.dao.DAOFactory;
 import edu.ijse.inspira1stsemesterproject.dao.custom.SupplierDAO;
-import edu.ijse.inspira1stsemesterproject.dao.custom.impl.SupplierDAOImpl;
-import edu.ijse.inspira1stsemesterproject.dto.CustomerDto;
 import edu.ijse.inspira1stsemesterproject.dto.SupplierDto;
-import edu.ijse.inspira1stsemesterproject.entity.Customer;
 import edu.ijse.inspira1stsemesterproject.entity.Supplier;
-import edu.ijse.inspira1stsemesterproject.util.CrudUtil;
 
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -38,11 +33,19 @@ public class SupplierBOImpl implements SupplierBO {
 
     public SupplierDto findById(String selectedSupplierId) throws SQLException, ClassNotFoundException {
         Supplier supplier = supplierDAO.findById(selectedSupplierId);
-        return new SupplierDto
-                (supplier.getSupplierId(),supplier.getSupplierName(),supplier.getEmail()
-                );
 
+        if (supplier == null) {
+            System.err.println("No supplier found for supplierId: " + selectedSupplierId);
+            return null;
+        }
+
+        return new SupplierDto(
+                supplier.getSupplierId(),
+                supplier.getSupplierName(),
+                supplier.getEmail()
+        );
     }
+
 
     public boolean saveSupplier(SupplierDto supplierDto) throws SQLException, ClassNotFoundException {
         return supplierDAO.save(

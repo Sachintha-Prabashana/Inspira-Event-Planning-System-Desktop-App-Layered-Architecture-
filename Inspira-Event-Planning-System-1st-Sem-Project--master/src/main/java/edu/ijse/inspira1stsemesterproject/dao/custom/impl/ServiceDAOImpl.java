@@ -1,9 +1,8 @@
 package edu.ijse.inspira1stsemesterproject.dao.custom.impl;
 
 import edu.ijse.inspira1stsemesterproject.dao.custom.ServiceDAO;
-import edu.ijse.inspira1stsemesterproject.dto.ServiceDto;
 import edu.ijse.inspira1stsemesterproject.entity.Service;
-import edu.ijse.inspira1stsemesterproject.util.CrudUtil;
+import edu.ijse.inspira1stsemesterproject.dao.SQLUtil;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -11,7 +10,7 @@ import java.util.ArrayList;
 
 public class ServiceDAOImpl implements ServiceDAO {
     public ArrayList<String> getAllIds() throws SQLException, ClassNotFoundException {
-        ResultSet rst = CrudUtil.execute("select service_id from service");
+        ResultSet rst = SQLUtil.execute("select service_id from service");
 
         ArrayList<String> serviceIds = new ArrayList<>();
 
@@ -23,7 +22,7 @@ public class ServiceDAOImpl implements ServiceDAO {
     }
 
     public Service findById(String selectedServiceId) throws SQLException, ClassNotFoundException {
-        ResultSet rst = CrudUtil.execute("select * from service where service_id=?", selectedServiceId);
+        ResultSet rst = SQLUtil.execute("select * from service where service_id=?", selectedServiceId);
 
         if (rst.next()) {
             return new Service(
@@ -36,7 +35,7 @@ public class ServiceDAOImpl implements ServiceDAO {
     }
 
     public String getNextId() throws SQLException, ClassNotFoundException {
-        ResultSet rst = CrudUtil.execute("SELECT service_id FROM service ORDER BY service_id DESC LIMIT 1");
+        ResultSet rst = SQLUtil.execute("SELECT service_id FROM service ORDER BY service_id DESC LIMIT 1");
 
         if (rst.next()) {
             String lastId = rst.getString(1); // Last employee ID, e.g., "EM001"
@@ -59,7 +58,7 @@ public class ServiceDAOImpl implements ServiceDAO {
     }
 
     public ArrayList<Service> getAll() throws SQLException, ClassNotFoundException {
-        ResultSet rst = CrudUtil.execute("select * from service");
+        ResultSet rst = SQLUtil.execute("select * from service");
 
         ArrayList<Service> services = new ArrayList<>();
 
@@ -75,7 +74,7 @@ public class ServiceDAOImpl implements ServiceDAO {
     }
 
     public boolean save(Service entity) throws SQLException, ClassNotFoundException {
-        return CrudUtil.execute("insert into service values(?,?,?)",
+        return SQLUtil.execute("insert into service values(?,?,?)",
                 entity.getServiceId(),
                 entity.getPrice(),
                 entity.getServiceType()
@@ -84,7 +83,7 @@ public class ServiceDAOImpl implements ServiceDAO {
     }
 
     public boolean update(Service entity) throws SQLException, ClassNotFoundException {
-        return CrudUtil.execute(
+        return SQLUtil.execute(
                 "update service set  price = ?, service_type = ? where service_id = ?",
                 entity.getPrice(),
                 entity.getServiceType(),
@@ -93,6 +92,6 @@ public class ServiceDAOImpl implements ServiceDAO {
     }
 
     public boolean delete(String serviceId) throws SQLException, ClassNotFoundException {
-        return CrudUtil.execute("delete from service where service_id=?", serviceId);
+        return SQLUtil.execute("delete from service where service_id=?", serviceId);
     }
 }

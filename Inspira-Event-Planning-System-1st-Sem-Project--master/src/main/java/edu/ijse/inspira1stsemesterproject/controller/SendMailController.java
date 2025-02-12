@@ -34,11 +34,11 @@ public class SendMailController {
             return;
         }
 
-        if(supplierEmail == null) {
-            Alert alert = new Alert(Alert.AlertType.ERROR, "Supplier Email Not Set");
-            alert.showAndWait();
-            return;
-        }
+//        if(supplierEmail == null) {
+//            Alert alert = new Alert(Alert.AlertType.ERROR, "Supplier Email Not Set");
+//            alert.showAndWait();
+//            return;
+//        }
         String subject = txtSubject.getText();
         String body = txtBody.getText();
 

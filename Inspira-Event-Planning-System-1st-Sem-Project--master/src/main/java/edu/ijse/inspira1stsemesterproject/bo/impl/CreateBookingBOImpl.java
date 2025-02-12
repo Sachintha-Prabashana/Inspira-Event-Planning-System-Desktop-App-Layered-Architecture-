@@ -7,30 +7,15 @@ import edu.ijse.inspira1stsemesterproject.bo.ServiceBO;
 import edu.ijse.inspira1stsemesterproject.dao.DAOFactory;
 import edu.ijse.inspira1stsemesterproject.dao.custom.BookingDAO;
 import edu.ijse.inspira1stsemesterproject.dao.custom.BookingServiceDAO;
-import edu.ijse.inspira1stsemesterproject.dao.custom.CustomerDAO;
-import edu.ijse.inspira1stsemesterproject.dao.custom.ServiceDAO;
-import edu.ijse.inspira1stsemesterproject.dao.custom.impl.BookingDAOImpl;
-import edu.ijse.inspira1stsemesterproject.dao.custom.impl.BookingServiceDAOImpl;
-import edu.ijse.inspira1stsemesterproject.dao.custom.impl.CustomerDAOImpl;
-import edu.ijse.inspira1stsemesterproject.dao.custom.impl.ServiceDAOImpl;
 import edu.ijse.inspira1stsemesterproject.db.DBConnection;
 import edu.ijse.inspira1stsemesterproject.dto.BookingDto;
-import edu.ijse.inspira1stsemesterproject.dto.BookingServiceDto;
 import edu.ijse.inspira1stsemesterproject.dto.CustomerDto;
 import edu.ijse.inspira1stsemesterproject.dto.ServiceDto;
 import edu.ijse.inspira1stsemesterproject.entity.Booking;
 import edu.ijse.inspira1stsemesterproject.entity.BookingService;
-import edu.ijse.inspira1stsemesterproject.entity.Customer;
-import edu.ijse.inspira1stsemesterproject.entity.Service;
-import edu.ijse.inspira1stsemesterproject.util.CrudUtil;
-import edu.ijse.inspira1stsemesterproject.view.tdm.BookingTM;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
 
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.List;
 
 public class CreateBookingBOImpl implements CreateBookingBO {
 

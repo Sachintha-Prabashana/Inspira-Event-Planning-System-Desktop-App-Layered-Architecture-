@@ -2,7 +2,7 @@ package edu.ijse.inspira1stsemesterproject.dao.custom.impl;
 
 import edu.ijse.inspira1stsemesterproject.dao.custom.EventDAO;
 import edu.ijse.inspira1stsemesterproject.entity.Event;
-import edu.ijse.inspira1stsemesterproject.util.CrudUtil;
+import edu.ijse.inspira1stsemesterproject.dao.SQLUtil;
 
 import java.sql.Date;
 import java.sql.ResultSet;
@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public class EventDAOImpl implements EventDAO {
 
     public String getNextId() throws SQLException, ClassNotFoundException {
-        ResultSet rst = CrudUtil.execute("select event_id from event order by event_id desc limit 1");
+        ResultSet rst = SQLUtil.execute("select event_id from event order by event_id desc limit 1");
 
         if (rst.next()) {
             String lastId = rst.getString(1); // Last customer ID
@@ -31,7 +31,7 @@ public class EventDAOImpl implements EventDAO {
 
 
     public boolean save(Event entity) throws SQLException, ClassNotFoundException {
-        boolean isEventSaved = CrudUtil.execute(
+        boolean isEventSaved = SQLUtil.execute(
                 "INSERT INTO event (event_id, booking_id, event_type, event_name, budget, venue, event_date) VALUES (?,?,?,?,?,?,?)",
                 entity.getEventId(),
                 entity.getBookingId(),
@@ -66,7 +66,7 @@ public class EventDAOImpl implements EventDAO {
 
     @Override
     public boolean isVenueAvailable(String venue, Date date) throws SQLException, ClassNotFoundException {
-        ResultSet resultSet = CrudUtil.execute(
+        ResultSet resultSet = SQLUtil.execute(
                 "SELECT COUNT(*) FROM Event WHERE venue = ? AND event_date = ?",
                 venue, date
         );
