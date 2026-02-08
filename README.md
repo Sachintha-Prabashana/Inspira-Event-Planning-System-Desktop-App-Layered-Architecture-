@@ -61,8 +61,8 @@ A JavaFX + MySQL desktop application for managing event planning operations (cus
 Replace the URL below with your actual GitHub repository URL:
 
 ```bash
-git clone https://github.com/<your-org-or-username>/<your-repo>.git
-cd <your-repo>
+git clone https://github.com/<your-org-or-username>/<your-repo>.git](https://github.com/Sachintha-Prabashana/Inspira-Event-Planning-System-Desktop-App-Layered-Architecture-.git
+cd <https://github.com/Sachintha-Prabashana/Inspira-Event-Planning-System-Desktop-App-Layered-Architecture-.git>
 ```
 
 ### Prerequisites
